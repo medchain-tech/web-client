@@ -1,0 +1,208 @@
+:root {
+    // Type
+    --step-n2: clamp(0.6076rem, 0.5407rem + 0.3345vw, 0.8rem);
+    --step-n1: clamp(0.8rem, 0.635rem + 0.5vw, 0.95rem);
+    --step-0: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.2rem);
+    --step-1: clamp(1.05rem, 0.8717rem + 0.8913vw, 1.4rem);
+    --step-2: clamp(1.26rem, 1.0189rem + 1.2054vw, 1.8rem);
+    --step-3: clamp(1.512rem, 1.1887rem + 1.6164vw, 2rem);
+    --step-4: clamp(1.8144rem, 1.384rem + 2.1519vw, 2.2rem);
+    --step-5: clamp(1.8rem, 1.8rem + 2vw, 3rem);
+
+    // Spacing
+    --space-3xs: clamp(0.25rem, 0.2283rem + 0.1087vw, 0.3125rem);
+    --space-2xs: clamp(0.4375rem, 0.3723rem + 0.3261vw, 0.625rem);
+    --space-xs: clamp(0.6875rem, 0.6005rem + 0.4348vw, 0.9375rem);
+    --space-s: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.25rem);
+    --space-m: clamp(1.3125rem, 1.1168rem + 0.9783vw, 1.875rem);
+    --space-l: clamp(1.75rem, 1.4891rem + 1.3043vw, 2.5rem);
+    --space-xl: clamp(2.625rem, 2.2337rem + 1.9565vw, 3.75rem);
+    --space-2xl: clamp(3.5rem, 2.9783rem + 2.6087vw, 5rem);
+    --space-3xl: clamp(5.25rem, 4.4674rem + 3.913vw, 7.5rem);
+
+    // Fonts
+    --font-sans: 'Poppins', system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, 'Open Sans', sans-serif;
+    --font-heading: var(--font-sans);
+
+    // Shadow (h,s)
+    --shadow-color: 210deg 11%;
+    --shadow-color-light: 210deg 11% 90%;
+    --shadow-color-dark: 210deg 11% 10%;
+
+    // Colors
+    --clr-gray-100: hsl(210deg 17% 98%);
+    --clr-gray-200: hsl(210deg 16% 93%);
+    --clr-gray-300: hsl(210deg 14% 89%);
+    --clr-gray-400: hsl(210deg 14% 83%);
+    --clr-gray-500: hsl(210deg 11% 71%);
+    --clr-gray-600: hsl(208deg 7% 46%);
+    --clr-gray-700: hsl(210deg 9% 31%);
+    --clr-gray-800: hsl(210deg 10% 23%);
+    --clr-gray-900: hsl(210deg 11% 21%);
+    --clr-white: hsl(210deg 30% 99%);
+    --clr-black: hsl(210deg 60% 7%);
+    --clr-primary: hsl(256deg 96% 59%);
+
+    
+    // Z-levels
+    --z-base: 1;
+    --z-dialog: 4;
+    --z-toast: 3;
+
+    // Grid Properties
+    --grid-offset: 1.5rem;
+    --breakout-offset: 1rem;
+    --grid-width: 105ch;
+
+    font-family: var(--font-sans);
+    color: var(--clr-gray-900);
+    font-size: 14px;
+    color-scheme: light;
+
+
+
+    @media (prefers-color-scheme: dark) {
+        --clr-gray-100: hsl(210deg 17% 2%);
+        --clr-gray-200: hsl(210deg 16% 7%);
+        --clr-gray-300: hsl(210deg 14% 11%);
+        --clr-gray-400: hsl(210deg 14% 17%);
+        --clr-gray-500: hsl(210deg 11% 29%);
+        --clr-gray-600: hsl(208deg 7% 54%);
+        --clr-gray-700: hsl(210deg 9% 69%);
+        --clr-gray-800: hsl(210deg 10% 77%);
+        --clr-gray-900: hsl(210deg 11% 79%);
+        --clr-white: hsl(210deg 30% 1%);
+        --clr-black: hsl(210deg 60% 93%);
+        --text-gradient: linear-gradient(217deg, hsla(208deg 80% 75% / 88%), hsla(208deg 80% 60% / 20%) 70.71%),
+            linear-gradient(127deg, hsla(140deg 54% 73% / 98%), hsla(272deg 75% 80% / 20%) 70.71%);
+        --shadow-color-light: 210deg 11% 10%;
+        --shadow-color-dark: 210deg 11% 70%;
+
+        color-scheme: dark;
+    }
+}
+
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+
+body {
+    background-color: var(--clr-white);
+    background-size: var(--body-bg-size);
+    color: var(--clr-grey-900);
+    accent-color: var(--clr-gray-300);
+    min-height: 100vh;
+    align-content: start;
+}
+
+main,
+astro-island,
+astro-slot,
+astro-static-slot {
+    display: contents;
+
+    &>* {
+        grid-column: content;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+}
+
+button:focus {
+    outline-offset: 3px;
+    outline: 2px solid;
+}
+
+svg,
+picture,
+img,
+video {
+    max-width: 100%;
+}
+
+svg {
+    --c-icon-size: var(--icon-size, 30px);
+    --c-aspect-ratio: var(--aspect-ratio, 1);
+
+    width: var(--c-icon-size);
+    aspect-ratio: var(--c-aspect-ratio);
+}
+
+
+[data-grid] {
+    --c-grid-offset: var(--grid-offset, 1.5rem);
+    --c-grid-width: var(--grid-width, 105ch);
+
+    display: grid;
+    grid-template-columns:
+        [full-start left-start] minmax(var(--c-grid-offset), 1fr) [right-start content-start] minmax(auto, var(--c-grid-width)) [content-end left-end] minmax(var(--c-grid-offset), 1fr) [right-end full-end];
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    &>* {
+        grid-column: content;
+    }
+}
+
+
+h1 {
+    font-size: var(--step-5);
+    font-weight: bold;
+}
+
+input, select {
+    min-width: 0;
+}
+
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+.button {
+    --c-padding: var(--padding, 0.7rem 1.25rem 0.75rem);
+    --c-bg: var(--bg, var(--clr-primary));
+    --c-clr: var(--clr, hsl(0deg 0% 99%));
+    --c-radius: var(--radius, 0.5rem);
+    --c-border: var(--border, 0);
+    --c-focus: var(--focus, 2px solid var(--clr-primary));
+
+    padding: var(--c-padding);
+    background: var(--c-bg);
+    color: var(--c-clr);
+    border-radius: var(--c-radius);
+    cursor: pointer;
+    border: var(--c-border);
+
+    &:focus {
+        outline: var(--c-focus);
+        outline-offset: 5px;
+    }
+}
+
+// Layouts
+

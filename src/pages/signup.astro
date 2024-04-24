@@ -1,0 +1,85 @@
+---
+import Base from "@/layouts/Base.astro";
+import SignUpForm from "@components/signup/form";
+---
+
+<Base title="Sign Up">
+    <div class="signup">
+        <div class="signup-sidebar">
+            <h1 class="signup-heading">
+                Let's set up Your <span class="signup-heading-span">Medchain</span> account
+            </h1>
+        </div>
+
+
+        <div class="signup-main">
+            <SignUpForm />
+        </div>
+
+        <svg viewBox="0 0 162 240" class="signup-decoration">
+            <use href="#decoration"></use>
+        </svg>
+    </div>
+</Base>
+
+<style lang="scss">
+    .signup {
+        grid-column: full;
+        display: flex;
+        flex-direction: column;
+        align-content: start;
+
+        @media (min-width: 800px) {
+            flex-direction: row;
+        }
+
+        &-sidebar {
+
+            padding: var(--space-s);
+            display: grid;
+            place-content: center;
+            border: 0 solid var(--clr-gray-200);
+            border-width: 0 0 2px 0;
+            position: static;
+
+            @media (min-width: 800px) {
+                max-width: min(50vw, 525px);
+                height: 100vh;
+                border-width: 0 2px 0 0;
+                background: var(--clr-gray-100);
+                position: sticky;
+                inset: 0;
+            }
+
+        }
+
+        &-heading {
+            width: fit-content;
+            line-height: 1;
+
+            @media (max-width: 800px) {
+                width: min(500px, 100%);
+                margin-inline: auto;
+            }
+        }
+
+        &-heading-span {
+            color: var(--clr-primary);
+        }
+
+        &-main {
+            padding: var(--space-s);
+            @media (min-width: 800px) {
+                place-content: center;
+            } 
+        }
+
+        &-decoration {
+            --icon-size: 150px;
+            z-index: -1;
+            position: fixed;
+            inset: calc(var(--icon-size) / -20) calc(var(--icon-size) / -6.7) auto auto;
+            filter: grayscale(1) opacity(0.25);
+        }
+    }
+</style>
