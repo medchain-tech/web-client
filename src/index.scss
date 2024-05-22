@@ -1,0 +1,124 @@
+:root {
+    // COLORS
+    --clr-content-1: #292729;
+    --clr-content-2: #404B56;
+    --clr-content-3: #8C9399;
+    --clr-content-4: #8C9399;
+    --clr-content-5: #292729;
+
+    --clr-off-white: #404B56;
+    --clr-bg: #8C9399;
+    --clr-border: #E6E7E9;
+    --clr-bg-secondary: #F5F6F6;
+    --clr-bg-secondary-low: #FCFCFC;
+
+    --clr-bg-primary: #FFFFFF;
+
+    --clr-primary-base: #160245;
+    --clr-primary-hover: #9186FF;
+    --clr-primary-pressed: #5E53CC;
+    --clr-primary-border: #E3E1FF;
+    --clr-primary-bg: #F8F7FF;
+
+    --clr-green-base: #31BC5F;
+    --clr-green-hover: #58D481;
+    --clr-green-pressed: #1C8941;
+    --clr-green-border: #92E0AC;
+    --clr-green-bg: #EEFAF2;
+
+    --clr-lavendar-base: #D6D2FF;
+    --clr-lavender-hover: #DEDBFF;
+    --clr-lavender-pressed: #ABA8CC;
+    --clr-lavender-border: #F7F6FF;
+    --clr-lavender-bg: #FDFDFF;
+
+
+    --clr-red-base: #E72B3B;
+    --clr-red-hover: #EC5562;
+    --clr-red-pressed: #B9222F;
+    --clr-red-border: #FAD5D8;
+    --clr-red-bg: #FEF4F5;
+
+    --font-sans: Poppins, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        // Font-sizes
+    --fs-xs: clamp(0.7rem, 0.7rem + 0.5vw, 0.75rem);
+    --fs-sm: clamp(0.8rem, 0.8rem + 0.65vw, 0.875rem);
+    --fs-md: clamp(0.875rem, 0.875rem + 0.65vw, 1rem);
+    --fs-lg: clamp(1rem, 1rem + 0.65vw, 1.125rem);
+    --fs-xl: clamp(1.125rem, 1.125rem + 0.65vw, 1.25rem);
+    --fs-display-xs: clamp(1.25rem, 1.25rem + 0.65vw, 1.5rem);
+    --fs-display-sm: clamp(1.5rem, 1.5rem + 0.65vw, 1.875rem);
+    --fs-display-md: clamp(2rem, 2rem + 1vw, 2.25rem);
+    --fs-display-lg: clamp(2.75rem, 2.25rem + 1vw, 3rem);
+    --fs-display-xl: clamp(3.5rem, 3.5rem + 1vw, 3.75rem);
+    --fs-display-2xl: clamp(4.25rem, 4.25rem + 1vw, 4.5rem);
+
+    // Z-levels
+    --z-base: 1;
+    --z-dialog: 4;
+    --z-toast: 5;
+    --z-home: 2;
+
+    font-family: var(--font-sans);
+    color: var(--clr-content-1);
+    font-size: 15px;
+    color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+#root {
+    display: contents;
+}
+
+body {
+    accent-color: var(--clr-primary-base);
+    align-content: start;   
+    display: grid;
+    grid-template-areas: "header main";
+    grid-template-columns: minmax(25vw, 250px) 1fr;
+}
+
+main {
+    grid-column: main;
+}
+
+svg,
+picture,
+img,
+video {
+    max-width: 100%;
+    vertical-align: middle;
+    font-style: italic;
+}
+
+svg {
+    --c-icon-size: var(--icon-size, 30px);
+    --c-aspect-ratio: var(--aspect-ratio, 1);
+
+    width: var(--c-icon-size);
+    aspect-ratio: var(--c-aspect-ratio);
+}
+
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
