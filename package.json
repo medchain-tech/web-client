@@ -1,37 +1,23 @@
 {
-  "name": "@medchain/web-client",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "web-client",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "lint:ts": "pnpm exec eslint src/",
-    "lint:scss": "pnpm exec stylelint **/*.scss",
-    "lint": "pnpm run lint:scss && pnpm run lint:ts"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@astrojs/solid-js": "^4.1.0",
-    "@nanostores/solid": "^0.4.2",
-    "astro": "^4.5.17",
-    "nanostores": "^0.10.3",
-    "solid-js": "^1.8.16"
+    "@solidjs/router": "^0.13.3",
+    "solid-js": "^1.8.15"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7",
-    "@typescript-eslint/eslint-plugin": "^7.7.1",
-    "eslint": "^9.1.1",
-    "eslint-config-love": "^47.0.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-n": "^17.2.1",
-    "eslint-plugin-promise": "^6.1.1",
-    "path": "^0.12.7",
-    "sass": "^1.75.0",
-    "stylelint": "^16.3.1",
-    "stylelint-config-standard-scss": "^13.1.0",
-    "typescript": "^5.4.5"
+    "@nanostores/solid": "^0.4.2",
+    "nanostores": "^0.10.3",
+    "sass": "^1.76.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vite-plugin-solid": "^2.10.2"
   }
 }

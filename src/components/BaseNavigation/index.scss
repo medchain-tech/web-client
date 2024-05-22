@@ -1,0 +1,135 @@
+.basenav {
+
+    &-header {
+        grid-column: header;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: 
+            "header"
+            "main"
+            "user"
+        ;
+        align-content: start;
+        
+        height: 100vh;
+        padding: 1rem;
+        border-inline-end: 0.5px solid var(--clr-bg); 
+        font-size: var(--fs-md);
+    }
+
+    &-logo {
+        grid-row: header;
+    }
+
+    &-logo-text {
+        padding: 0.5rem 0 0.75rem;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    &-nav {
+        --icon-size: 22.5px;
+        display: flex;
+        gap: 1rem;
+        flex-flow: column wrap;
+        grid-row: main;
+        padding: 0.5rem 0 0;
+
+
+    }
+
+    &-nav-ul, &-nav-li {
+        display: contents;
+        list-style: none;
+    }
+
+    &-nav-a {
+        display: flex;
+        flex-flow: row;
+        place-content: center start;
+        gap: 0.25rem;
+        padding: 0.35rem 0.5rem 0.4rem;
+        outline: 0.5px solid #00000010;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        color: var(--clr-content-1);
+
+        &.lowered-link {
+            margin-block-start: auto;
+        }
+    }
+
+    &-nav-a > &-nav-text {
+        margin-block-start: 1.25px;
+    }
+
+    &-nav-summary {
+        display: flex;
+        place-content: center start;
+        gap: 0.25rem;
+        flex-flow: row wrap;
+        padding: 0.35rem 0.5rem 0.4rem;
+        outline: 0.5px solid #00000010;
+        border-radius: 0.5rem;
+        list-style: none;
+    }
+
+
+    &-nav-summary-arrow {
+        margin-inline-start: auto;
+        transform: rotate(0.5turn);
+    }
+
+    &-nav-details[open] &-nav-summary-arrow {
+        transform: rotate(0turn);
+    }
+
+    &-nav-details-list {
+        list-style: none;
+        display: flex;
+        flex-flow: column wrap;
+        place-content: end center;
+        padding: 0.25rem;
+        text-align: center;
+    }
+
+    &-nav-details-li {
+        display: contents;
+    }
+
+    &-nav-details-link { 
+        padding: 0.35rem 0.5rem 0.4rem;
+        text-decoration: none;
+        color: var(--clr-content-1);
+    }
+
+
+    &-user {
+        display: grid;
+        grid-template-columns: 40px 1fr auto;
+        flex-flow: row;
+        place-items: start center;
+        grid-row: user;
+    }
+
+    &-user-image {
+        --image-size: 40px;
+        width: var(--image-size);
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 50%;
+        outline: 0.5px solid #00000060;
+    }
+
+    &-user-content {
+        width: auto;
+        overflow: hidden;
+    }
+
+    &-user-email {
+        width: inherit;
+    }
+
+
+}
