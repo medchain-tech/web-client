@@ -1,3 +1,8 @@
+body {
+    grid-template-areas: "header main";
+    grid-template-columns: minmax(25vw, 250px) 1fr;
+}
+
 .basenav {
 
     &-header {
@@ -48,8 +53,8 @@
         display: flex;
         flex-flow: row;
         place-content: center start;
-        gap: 0.25rem;
-        padding: 0.35rem 0.5rem 0.4rem;
+        gap: 0.5rem;
+        padding: 0.5rem 0.65rem 0.55rem;
         outline: 0.5px solid #00000010;
         border-radius: 0.5rem;
         text-decoration: none;
@@ -67,9 +72,9 @@
     &-nav-summary {
         display: flex;
         place-content: center start;
-        gap: 0.25rem;
+        gap: 0.5rem;
         flex-flow: row wrap;
-        padding: 0.35rem 0.5rem 0.4rem;
+        padding: 0.5rem 0.65rem 0.55rem;
         outline: 0.5px solid #00000010;
         border-radius: 0.5rem;
         list-style: none;

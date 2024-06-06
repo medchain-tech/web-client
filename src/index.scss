@@ -80,11 +80,9 @@
 }
 
 body {
-    accent-color: var(--clr-primary-base);
+    accent-color: var(--clr-primary-pressed);
     align-content: start;   
     display: grid;
-    grid-template-areas: "header main";
-    grid-template-columns: minmax(25vw, 250px) 1fr;
 }
 
 main {
