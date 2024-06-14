@@ -1,0 +1,54 @@
+.rdialog {
+	&-wrapper {
+		position: fixed;
+		inset: 0;
+		z-index: var(--z-dialog);
+		background: hsl(0 0 0 / 40%);
+		backdrop-filter: blur(5px);
+		height: 100vh;
+		overflow: auto;
+		overscroll-behavior: contain;
+	}
+
+
+
+	& {
+		margin: 2rem auto;
+		width: min(90vw, 800px);
+		background: var(--clr-bg-secondary);
+		border-radius: 0.5rem;
+	}
+
+
+	&-title-bar,
+	&-main {
+		border-radius: 0.5rem;
+	}
+}
+
+
+
+
+.rdialog-title {
+	font-weight: 500;
+	font-size: calc(var(--fs-display-md) * 0.75);
+	line-height: 0.95;
+
+
+	&-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1rem 1.5rem 1.25rem;
+		background: var(--clr-bg-primary);
+		box-shadow: 0 2px 5px -4px var(--clr-primary-hover);
+	}
+
+	&-button {
+		--icon-size: 25px;
+	}
+}
+
+.rdialog-main {
+	padding: 1rem 1.5rem 1.25rem;
+}

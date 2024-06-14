@@ -1,6 +1,6 @@
 body {
     grid-template-areas: "header main";
-    grid-template-columns: minmax(25vw, 250px) 1fr;
+    grid-template-columns: minmax(22.5vw, 300px) 1fr;
 }
 
 .basenav {
@@ -9,17 +9,21 @@ body {
         grid-column: header;
         display: grid;
         grid-template-rows: auto 1fr auto;
-        grid-template-areas: 
+        grid-template-areas:
             "header"
             "main"
             "user"
         ;
         align-content: start;
-        
-        height: 100vh;
+
+        min-height: 100vh;
+        height: fit-content;
+        position: sticky;
+        top: 0;
         padding: 1rem;
-        border-inline-end: 0.5px solid var(--clr-bg); 
+        border-inline-end: 0.5px solid var(--clr-bg-secondary);
         font-size: var(--fs-md);
+        overflow-x: hidden;
     }
 
     &-logo {
@@ -44,7 +48,8 @@ body {
 
     }
 
-    &-nav-ul, &-nav-li {
+    &-nav-ul,
+    &-nav-li {
         display: contents;
         list-style: none;
     }
@@ -65,7 +70,7 @@ body {
         }
     }
 
-    &-nav-a > &-nav-text {
+    &-nav-a>&-nav-text {
         margin-block-start: 1.25px;
     }
 
@@ -103,7 +108,7 @@ body {
         display: contents;
     }
 
-    &-nav-details-link { 
+    &-nav-details-link {
         padding: 0.35rem 0.5rem 0.4rem;
         text-decoration: none;
         color: var(--clr-content-1);
@@ -112,10 +117,13 @@ body {
 
     &-user {
         display: grid;
-        grid-template-columns: 40px 1fr auto;
+        grid-template-columns: 40px 1fr;
         flex-flow: row;
         place-items: start center;
         grid-row: user;
+        padding: 0.75rem 0 0.5rem;
+        margin-top: 1.5rem;
+        border-top: 1px solid var(--clr-bg-secondary);
     }
 
     &-user-image {
@@ -128,13 +136,7 @@ body {
     }
 
     &-user-content {
-        width: auto;
-        overflow: hidden;
+        display: grid;
     }
-
-    &-user-email {
-        width: inherit;
-    }
-
 
 }

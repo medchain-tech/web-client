@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@solidjs/meta':
+    specifier: ^0.29.4
+    version: 0.29.4(solid-js@1.8.17)
   '@solidjs/router':
     specifier: ^0.13.3
     version: 0.13.3(solid-js@1.8.17)
@@ -734,6 +737,14 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@solidjs/meta@0.29.4(solid-js@1.8.17):
+    resolution: {integrity: sha512-zdIWBGpR9zGx1p1bzIPqF5Gs+Ks/BH8R6fWhmUa/dcK1L2rUC8BAcZJzNRYBQv74kScf1TSOs0EY//Vd/I0V8g==}
+    peerDependencies:
+      solid-js: '>=1.8.4'
+    dependencies:
+      solid-js: 1.8.17
+    dev: false
 
   /@solidjs/router@0.13.3(solid-js@1.8.17):
     resolution: {integrity: sha512-p8zznlvnN3KySMXqT8irhubgDNTETNa/guaGHU/cZl7kuiPO3PmkWNYfoNCygtEpoxLmLpf62/ZKeyhFdZexsw==}

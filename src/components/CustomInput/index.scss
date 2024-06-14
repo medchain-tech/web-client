@@ -1,0 +1,48 @@
+.form-textinput {
+
+	&-field {
+		--gap: 0.15rem;
+		--padding: 0.35rem 0.75rem 0.5rem;
+		--border-color: var(--clr-border);
+		--radius: 5px;
+
+		display: grid;
+		gap: var(--gap);
+	}
+
+	&-label {
+		width: fit-content;
+	}
+
+	&-input,
+	&-reveal {
+		grid-row: 2 / 3;
+	}
+
+	&-input {
+		padding: var(--padding);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius);
+		background: var(--clr-bg-primary);
+	}
+
+	&-input[type="number"] {
+		appearance: none;
+	}
+
+	&-select {
+		padding: var(--padding);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius);
+		background: var(--clr-bg-primary);
+	}
+
+	&-textarea {
+		padding: var(--padding);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius);
+		resize: vertical;
+		min-height: min(100px);
+		background: var(--clr-bg-primary);
+	}
+}

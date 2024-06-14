@@ -11,18 +11,20 @@ import App from './App'
 
 const root = document.getElementById('root')
 const Home = lazy(() => import("./pages/Home/index"))
+const DoctorPage = lazy(() => import("./pages/Doctor/index"))
 
-render(() => 
+render(() =>
   <Router>
-    
+
     <Route path="/signup" component={SignUpLayout}>
       <Route path="/" component={Individual}></Route>
       <Route path="/doctor" component={Doctor}></Route>
     </Route>
 
-    <Route path="/user" component={App}>
+    <Route path="/" component={App}>
       <Route path="/" component={Home} />
+      <Route path="/records" component={DoctorPage} />
     </Route>
 
-  </Router>, 
-root!)
+  </Router>,
+  root!)

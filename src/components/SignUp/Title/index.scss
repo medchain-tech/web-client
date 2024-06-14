@@ -3,10 +3,10 @@
     display: flex;
     width: 100vw;
     min-height: 100vh;
-    
+
     &-sidebar {
-        display: flex;
-        flex-basis: min(50vw, 450px);
+        display: none;
+        flex-basis: min(50vw, 500px);
         place-content: center;
         place-items: center;
         background: var(--clr-primary-bg);
@@ -14,9 +14,13 @@
         top: 0;
         height: 100vh;
         padding: 0.5rem 0.75rem 0.6rem;
-        font-size: calc(var(--fs-display-lg) * 0.95);
+        font-size: calc(var(--fs-display-lg) * 1.05);
         font-weight: 600;
         line-height: 1.15;
+
+        @media (min-width: 1024px) {
+            display: flex;
+        }
     }
 
 
@@ -37,89 +41,13 @@
 
 .signup-form {
 
-    --select-gap: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem var(--select-gap);
-    font-size: var(--fs-md);
-    color: var(--clr-content-2);
-    margin-top: 0.75rem;
-
-    &-section {
-        display: grid;
-        gap: 0.5rem;
-        height: fit-content;
-        margin: auto;
-
-        & > * {
-            width: min(500px, 90vw);
-        }
-    }
-
-   &-heading {
-        font-weight: 500;
-        font-size: var(--fs-display-md);
-        line-height: 1.25;
-    }
-
-    &-subheading {
-        font-size: var(--fs-md);
-        line-height: 1.45;
-    }
-
-
-    &-input-field {
-        display: grid;
-        gap: 0.25rem;
-        flex-basis: 100%;
-
-    }
-
-    &-select-field {
-        display: grid;
-        gap: 0.25rem;
-        flex-basis: calc((100% - var(--select-gap)) / 2);
-    }
-
-    &-label {
-        display: flex;
-        align-self: start;
-        font-size: var(--fs-sm);
-        font-weight: 500;
-        line-height: 0.95;
-        color: var(--clr-content-1);
-    }
-
-    &-input, &-select-wrapper {
-        padding: 0.45rem 0.7rem 0.6rem;
-        border: 1px solid var(--clr-content-3);
-        border-radius: 0.5rem;
-    }
-
-    &-select-wrapper {
-        display: flex;
-        position: relative;
-        padding: 0;
-        // overflow-x: hidden;
-
-    }
-
-    &-select-arrow {
-        position: absolute;
-    }
-
-
-    &-select {
-        padding: 0.45rem 0.7rem 0.6rem;
-        border: 0px solid var(--clr-content-3);
-        border-radius: 0.5rem;
-        width: 100%;
-        height: 100%;
-        background: var(--clr-bg-primary);
-    }
+    display: grid;
+    gap: 0.5rem 0;
+    margin-top: 1rem;
+    font-size: 0.95rem;
 
     &-submit.button {
-    
+
         margin: 0.5rem auto auto;
         padding: 0.75rem 1rem 0.9rem;
         width: min(300px, 70vw);
@@ -137,7 +65,18 @@
 
     }
 
+    &-heading {
+        margin-bottom: 0.5rem;
+        font-size: calc(var(--fs-display-md) * 1.05);
+        font-weight: 500;
+    }
+
+    &-section {
+        margin: auto;
+        padding: 0rem 0 1rem;
+        width: min(550px, 90%);
+    }
+
+
+
 }
-
-
-
