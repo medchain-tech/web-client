@@ -76,7 +76,7 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             name={inputProps.id}
             placeholder={inputProps.placeholder}
             required={inputProps.required}
-            pattern={inputProps.pattern}
+            pattern={inputProps.type === "text" ? inputProps.pattern : ""}
             list={`list-${inputProps.id}`}
           />
 
@@ -120,7 +120,7 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             name={inputProps.id}
             placeholder={inputProps.placeholder}
             required={inputProps.required}
-            pattern={inputProps.pattern} />
+            pattern={inputProps.type === "password" ? inputProps.pattern : ""} />
 
           <Show when={inputProps.type === "password" && inputProps.revealPassword}>
             <button type="button" class="form-textinput-reveal">Reveal Password</button>
