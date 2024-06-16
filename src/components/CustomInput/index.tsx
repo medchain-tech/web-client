@@ -12,7 +12,8 @@ interface BaseInputProps {
 
 interface TextProps extends BaseInputProps {
   pattern?: string
-  type: 'text'
+  type: 'text',
+  options?: string[]
 }
 
 interface NumberProps extends BaseInputProps {
@@ -48,7 +49,6 @@ export type CustomInputProps = TextProps | NumberProps | EmailProps | PasswordPr
 
 const CustomInput = (props: CustomInputProps): JSXElement => {
 
-  console.log(props)
 
   const defaultProps: CustomInputProps = {
     type: "textarea",
@@ -76,7 +76,18 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             name={inputProps.id}
             placeholder={inputProps.placeholder}
             required={inputProps.required}
-            pattern={inputProps.pattern} />
+            pattern={inputProps.pattern}
+            list={`list-${inputProps.id}`}
+          />
+
+
+          <Show when={inputProps.type === "text" && inputProps.options && inputProps.options?.length > 0}>
+            <datalist id={`list-${inputProps.id}`}>
+              <For each={(inputProps.type === "text" && inputProps.options && inputProps.options?.length > 0) ? inputProps.options : []}>
+                {(option) => <option value={option}></option>}
+              </For>
+            </datalist>
+          </Show>
         </Match>
 
         <Match when={inputProps.type === "number"}>

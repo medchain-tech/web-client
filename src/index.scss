@@ -88,6 +88,11 @@ body {
     accent-color: var(--clr-primary-pressed);
     align-content: start;
     display: grid;
+
+    &.modal-open {
+        overflow: hidden;
+        height: 100vh;
+    }
 }
 
 main {

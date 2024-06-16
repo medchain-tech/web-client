@@ -1,5 +1,6 @@
 .rdialog {
 	&-wrapper {
+		display: none;
 		position: fixed;
 		inset: 0;
 		z-index: var(--z-dialog);
@@ -8,6 +9,10 @@
 		height: 100vh;
 		overflow: auto;
 		overscroll-behavior: contain;
+
+		&[data-open=true] {
+			display: grid;
+		}
 	}
 
 

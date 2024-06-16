@@ -2,6 +2,7 @@ import { For, JSXElement } from "solid-js";
 import "./index.scss";
 import RecordDialog from "@/components/RecordDialog";
 import CustomInput, { CustomInputProps } from "@/components/CustomInput";
+import { MEDICAL_SPECIALTIES, MEDICAL_UNITS } from "@/composables/data";
 
 const personalDetailsInputs: CustomInputProps[] = [
 
@@ -49,24 +50,60 @@ const personalDetailsInputs: CustomInputProps[] = [
 
   {
     type: "text",
-    label: "Language Spoken",
-    id: "add-staff-name",
-    placeholder: "e.g. English/Pidgin",
+    label: "Occupation",
+    id: "add-staff-occupation",
+    placeholder: "e.g. Microbiologist",
     required: true
+  },
+
+  {
+    type: "text",
+    label: "Hospital Name and Location",
+    id: "add-staff-hospital-name",
+    placeholder: "e.g. City Hospital, Ogba, Lagos",
+    required: true
+  },
+
+  {
+    type: "textarea",
+    label: "Acheivements and Professional Experience",
+    id: "add-staff-acheivements",
+    placeholder: "Provide a brief overview of the staff's background, experience and expertise. Highlight any significant acheivements, contributions to the field and other notable milestones",
+    required: true,
+    min: 2,
+    max: 500,
+  },
+
+  {
+    type: "text",
+    label: "Specialty",
+    id: "add-staff-specialty",
+    placeholder: "e.g. Cardiology",
+    required: true,
+    options: MEDICAL_SPECIALTIES
+  },
+
+  {
+    type: "text",
+    label: "Unit",
+    id: "add-staff-unit",
+    placeholder: "e.g. Intensive Care Unit (ICU)",
+    required: true,
+    options: MEDICAL_UNITS
+  },
+
+  {
+    type: "text",
+    label: "Recent Publications",
+    id: "add-staff-publications",
+    placeholder: "e.g. link.publication.com, another-link.publication.com"
   }
-
-
-
-
-
-
-
 
 ]
 
 const AddStaffDetail = (): JSXElement => {
 
-  return <RecordDialog title="Add Staff Detail">
+  return <RecordDialog modalKey="add-staff" title="Add Staff Detail">
 
     <form class="astaff-form">
       <div class="astaff-picture-field">
@@ -84,6 +121,9 @@ const AddStaffDetail = (): JSXElement => {
       <For each={personalDetailsInputs}>
         {(inputData) => <CustomInput {...inputData} />}
       </For>
+
+
+      <button type="submit" class="astaff-save">Save</button>
     </form>
 
 

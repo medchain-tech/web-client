@@ -1,15 +1,21 @@
 import { type JSXElement } from "solid-js";
 import "./index.scss";
+import { showModal } from "@/stores/modals";
 
 const DataTable = (): JSXElement => {
+
+  // @TODO - move the logic to the page components
+  const openAddStaffForm = () => {
+    showModal("add-staff")
+  }
 
   return <section class="dtable">
 
     <div class="dtable-header">
-      <h3 class="dtable-header-heading">Patient Records</h3>
+      <h3 class="dtable-header-heading">Staff Records</h3>
       <div class="dtable-header-button-bar">
         <button class="dtable-header-button" style="--border: 1px solid var(--clr-content-4)">View</button>
-        <button class="dtable-header-button" style="--bg: var(--clr-primary-pressed); --clr: var(--clr-bg-secondary)">Add Patient</button>
+        <button class="dtable-header-button" style="--bg: var(--clr-primary-pressed); --clr: var(--clr-bg-secondary)" onClick={openAddStaffForm}>Add Staff</button>
       </div>
     </div>
 
