@@ -8,6 +8,7 @@ const DataTable = (): JSXElement => {
   const openAddStaffForm = () => {
     showModal("add-staff")
   }
+  const openMoreModal = () => showModal("view-more")
 
   return <section class="dtable">
 
@@ -68,7 +69,7 @@ const DataTable = (): JSXElement => {
             <td>Dermatologist</td>
             <td>Dermatology Clinic</td>
             <td>Lagos, Nigeria</td>
-            <td><button class="dtable-table-button">View</button></td>
+            <td><button class="dtable-table-button" onClick={openMoreModal}>View</button></td>
           </tr>
           <tr>
             <td>Dr Dare Ishola</td>

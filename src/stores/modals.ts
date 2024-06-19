@@ -1,6 +1,6 @@
 import { atom } from "nanostores"
 
-export type ModalKey = "add-staff" | "";
+export type ModalKey = "add-staff" | "" | "view-more";
 export const $openModal = atom<ModalKey>("")
 
 const MODAL_OPEN_CLASS = "modal-open"

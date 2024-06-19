@@ -19,9 +19,9 @@ export const BaseNavigation = (): JSXElement => {
                     </li>
 
                     <li class="basenav-nav-li">
-                        <a href="#" class="basenav-nav-a">
+                        <a href="/records" class="basenav-nav-a">
                             <svg class="basenav-nav-icon" viewBox="0 0 512 512"><use href="#home"></use></svg>
-                            <span class="basenav-nav-text">Home</span>
+                            <span class="basenav-nav-text">Records</span>
                         </a>
                     </li>
 
@@ -66,9 +66,9 @@ export const BaseNavigation = (): JSXElement => {
                     </li>
 
                     <li class="basenav-nav-li">
-                        <a href="#" class="basenav-nav-a lowered-link">
+                        <a href="/dashboard" class="basenav-nav-a lowered-link">
                             <svg class="basenav-nav-icon" viewBox="0 0 512 512"><use href="#home"></use></svg>
-                            <span class="basenav-nav-text">Home</span>
+                            <span class="basenav-nav-text">Dashboard</span>
                         </a>
                     </li>
 
