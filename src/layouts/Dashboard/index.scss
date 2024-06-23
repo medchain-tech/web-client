@@ -1,0 +1,57 @@
+.dboard {
+
+	min-height: 90vh;
+	display: grid;
+	grid-template-areas: "dboard-main dboard-sidebar";
+	grid-template-columns: auto minmax(200px, 20vw);
+
+
+	&-main {
+		grid-column: dboard-main;
+	}
+
+	&-sidebar {
+		grid-column: dboard-sidebar;
+		height: fit-content;
+		border-inline-start: 1px solid var(--clr-bg-secondary);
+		border-block-end: 1px solid var(--clr-bg-secondary);
+		border-end-start-radius: 0.5rem;
+		padding: 0.75rem 1rem 1rem;
+	}
+
+
+}
+
+.dboard-notifications {
+	display: grid;
+	gap: 1rem;
+
+	&-header {
+		--icon-size: 20px;
+
+		display: flex;
+		flex-flow: row;
+		gap: 0.35rem;
+		align-items: center;
+		justify-content: start;
+		padding: 0.45rem 0.65rem 0.5rem;
+		background: var(--clr-bg-secondary);
+		border-radius: 0.5rem;
+		font-size: calc(var(--fs-md) * 0.95);
+		line-height: 0.9;
+		font-weight: 500;
+		border: 1px solid var(--clr-bg);
+	}
+
+
+	&-list {
+		display: grid;
+		gap: 0.75rem;
+		list-style: none;
+	}
+
+	&-li {
+		display: contents;
+	}
+
+}
