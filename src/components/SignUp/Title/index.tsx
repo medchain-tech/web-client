@@ -1,7 +1,7 @@
 import { JSXElement, ParentProps } from "solid-js"
 import "./index.scss"
 
-export const SignUpTitle = (props: ParentProps):JSXElement => {
+export const SignUpTitle = (props: ParentProps): JSXElement => {
 
     return (
         <div class="signup">

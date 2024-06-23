@@ -1,0 +1,63 @@
+.tline {
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: min(600px, 100%);
+	margin: 1rem auto 1rem;
+	position: relative;
+	isolation: isolate;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0 auto auto;
+		transform: translateY(10px);
+		height: 2px;
+		width: 100%;
+		background: var(--clr-primary-pressed);
+		z-index: -1;
+
+	}
+
+
+	&-event {
+		display: flex;
+		align-items: center;
+		flex-flow: column;
+		gap: 0.35rem;
+
+		&:first-child {
+			align-items: start;
+		}
+
+
+		&:first-child {
+			align-items: start;
+		}
+
+		&:last-child {
+			align-items: end;
+		}
+	}
+
+
+	&-cell {
+		background: white;
+		width: 20px;
+		aspect-ratio: 1;
+		overflow-x: hidden;
+		border: 2px solid var(--clr-primary-pressed);
+		border-radius: 50%;
+	}
+
+	&-text {
+		font-size: calc(var(--fs-md) * 0.85);
+		font-weight: 500;
+		border-radius: 0.5rem;
+		max-width: 105px;
+		line-height: 1.2;
+		background: var(--clr-primary-border);
+		padding: 0.45rem 0.65rem 0.5rem;
+	}
+}

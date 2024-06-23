@@ -1,0 +1,36 @@
+.notification {
+	display: grid;
+	gap: 0.5rem;
+	grid-template-columns: var(--notification-image-size) 1fr;
+	font-size: calc(var(--fs-sm) * 1.05);
+
+
+	&-image {
+		--icon-size: var(--notification-image-size);
+		padding: 0.25rem 0.35rem;
+		grid-column: 1 / 2;
+		background: var(--clr-primary-border);
+		color: var(--clr-primary-pressed);
+		border-radius: 0.4rem;
+	}
+
+	&-content {
+		grid-column: 2 / -1;
+		display: grid;
+		margin-top: -2.5px;
+	}
+
+
+	&-type {
+		font-weight: 500;
+		text-transform: capitalize;
+	}
+
+
+	&-time {
+		font-weight: 400;
+		color: var(--clr-content-4);
+	}
+
+
+}

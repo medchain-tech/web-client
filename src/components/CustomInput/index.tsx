@@ -1,4 +1,4 @@
-import { For, Match, Show, Switch, mergeProps, type JSXElement } from "solid-js"
+import { For, Match, Show, Switch, createEffect, createSignal, mergeProps, type JSXElement } from "solid-js"
 import "./index.scss"
 
 
@@ -8,6 +8,7 @@ interface BaseInputProps {
   errorMessage?: string
   placeholder?: string
   required?: boolean
+  checkInput?: (inputValue: string) => boolean
 }
 
 interface TextProps extends BaseInputProps {
@@ -24,6 +25,10 @@ interface NumberProps extends BaseInputProps {
 
 interface EmailProps extends BaseInputProps {
   type: 'email'
+}
+
+interface TelProps extends BaseInputProps {
+  type: 'tel'
 }
 
 interface PasswordProps extends BaseInputProps {
@@ -44,7 +49,7 @@ interface TextAreaProps extends BaseInputProps {
 }
 
 
-export type CustomInputProps = TextProps | NumberProps | EmailProps | PasswordProps | SelectProps | TextAreaProps
+export type CustomInputProps = TextProps | NumberProps | TelProps | EmailProps | PasswordProps | SelectProps | TextAreaProps
 
 
 const CustomInput = (props: CustomInputProps): JSXElement => {
@@ -60,7 +65,27 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
     min: 10
   }
 
+  const INPUT_TEXT_TYPE = "text"
+  const INPUT_PASSWORD_TYPE = "password"
+  const INPUT_TYPE_PROPERTY = "type"
+
   const inputProps = mergeProps(defaultProps, props)
+
+  const [showPassword, setShowPassword] = createSignal(false)
+
+  createEffect(() => {
+    const inputElement = document.querySelector(`#${inputProps.id}[data-type=password]`) as HTMLInputElement | null
+    if (!inputElement) return
+
+    const nextInputType = () => showPassword() === true ? INPUT_TEXT_TYPE : INPUT_PASSWORD_TYPE
+
+    if (inputElement.getAttribute(INPUT_TYPE_PROPERTY) === nextInputType()) return
+    inputElement.setAttribute(INPUT_TYPE_PROPERTY, nextInputType())
+    inputElement.focus()
+  })
+
+
+  const toggleShowPassword = () => setShowPassword(!showPassword())
 
   return <>
 
@@ -112,10 +137,24 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             required={inputProps.required} />
         </Match>
 
+        <Match when={inputProps.type === "tel"}>
+          <input
+            id={inputProps.id}
+            type="tel"
+            class="form-textinput-input"
+            name={inputProps.id}
+            placeholder={inputProps.placeholder}
+            required={inputProps.required}
+            inputmode="tel"
+          />
+        </Match>
+
+
         <Match when={inputProps.type === "password"}>
           <input
             id={inputProps.id}
             type="password"
+            data-type="password"
             class="form-textinput-input"
             name={inputProps.id}
             placeholder={inputProps.placeholder}
@@ -123,14 +162,19 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             pattern={inputProps.type === "password" ? inputProps.pattern : ""} />
 
           <Show when={inputProps.type === "password" && inputProps.revealPassword}>
-            <button type="button" class="form-textinput-reveal">Reveal Password</button>
+            <button type="button" class="form-textinput-reveal" onClick={toggleShowPassword}>
+              <svg viewBox="0 0 24 24">
+                <title>{showPassword() ? "Hide Password" : "Reveal Password"}</title>
+                <use href="#eye-tracking"></use>
+              </svg>
+            </button>
           </Show>
         </Match>
 
         <Match when={inputProps.type === "select"}>
           {
             inputProps.type === "select" &&
-            (<select class="form-textinput-select" name={inputProps.id}>
+            (<select class="form-textinput-select" name={inputProps.id} id={inputProps.id}>
               <For each={inputProps.options}>
                 {(option) => <option class="form-textinput-option" value={option}>{option}</option>}
               </For>

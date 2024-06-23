@@ -1,4 +1,4 @@
-body {
+body.user-nav {
     grid-template-areas: "header main";
     grid-template-columns: minmax(22.5vw, 300px) 1fr;
 }

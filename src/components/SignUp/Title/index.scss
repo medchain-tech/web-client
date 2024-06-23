@@ -1,7 +1,7 @@
 .signup {
 
     display: flex;
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
 
     &-sidebar {
@@ -42,11 +42,16 @@
 .signup-form {
 
     display: grid;
-    gap: 0.5rem 0;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem 0.75rem;
     margin-top: 1rem;
     font-size: 0.95rem;
 
-    &-submit.button {
+    &>* {
+        grid-column: span 2;
+    }
+
+    &-submit {
 
         margin: 0.5rem auto auto;
         padding: 0.75rem 1rem 0.9rem;
@@ -66,9 +71,11 @@
     }
 
     &-heading {
-        margin-bottom: 0.5rem;
-        font-size: calc(var(--fs-display-md) * 1.05);
+        font-size: calc(var(--fs-display-md) * 1);
         font-weight: 500;
+        line-height: 1.15;
+        text-align: center;
+        text-transform: uppercase;
     }
 
     &-section {

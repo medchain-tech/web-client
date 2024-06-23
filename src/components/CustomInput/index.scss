@@ -2,7 +2,7 @@
 
 	&-field {
 		--gap: 0.15rem;
-		--padding: 0.35rem 0.75rem 0.5rem;
+		--padding: var(--custom-input-padding, 0.45rem 0.75rem 0.55rem);
 		--border-color: var(--clr-border);
 		--radius: 5px;
 
@@ -28,6 +28,24 @@
 
 	&-input[type="number"] {
 		appearance: none;
+	}
+
+	&-input[data-type="password"],
+	&-reveal {
+		grid-column: 1 / -1;
+		grid-row: 2 / 3;
+	}
+
+	&-reveal {
+		--icon-size: 20px;
+		align-self: center;
+		justify-self: end;
+		background: none;
+		outline: none;
+		border: none;
+		width: fit-content;
+		margin-inline-end: 10px;
+		color: var(--clr-content-3);
 	}
 
 	&-select {

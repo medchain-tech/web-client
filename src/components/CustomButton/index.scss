@@ -1,0 +1,29 @@
+.custom-button {
+
+	--font-size: var(--custom-button-font-size, calc(var(--fs-md) * 1.35));
+	--font-weight: var(--custom-button-font-weight, 400);
+	--padding: var(--custom-button-padding, 0.75rem 1rem 0.9rem);
+	--bg: var(--custom-button-bg, var(--clr-primary-pressed));
+	--clr: var(--custom-button-clr, var(--clr-bg-primary));
+	--width: var(--custom-button-width, 100%);
+	--radius: var(--custom-button-radius, 0.5rem);
+	--border: var(--custom-button-border, none);
+
+	padding: var(--padding);
+	width: var(--width);
+	background: var(--bg);
+	color: var(--clr);
+	cursor: pointer;
+	border: var(--border);
+	border-radius: var(--radius);
+	font-size: var(--font-size);
+	font-weight: var(--font-weight);
+
+
+	&:focus-visible {
+		outline: 2px solid var(--clr);
+		outline-offset: -4px;
+	}
+
+
+}

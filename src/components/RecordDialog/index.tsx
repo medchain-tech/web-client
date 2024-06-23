@@ -20,7 +20,7 @@ const RecordDialog = (props: Props): JSXElement => {
     <div role="dialog" class="rdialog">
 
       <div class="rdialog-title-bar">
-        <h2 class="rdialog-title">Add Staff Detail</h2>
+        <h2 class="rdialog-title">{props.title}</h2>
 
         <button class="rdialog-close" onClick={close}>
           <svg viewBox="0 0 24 24">

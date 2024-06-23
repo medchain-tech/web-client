@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@solid-primitives/event-bus':
+    specifier: ^1.0.11
+    version: 1.0.11(solid-js@1.8.17)
   '@solidjs/meta':
     specifier: ^0.29.4
     version: 0.29.4(solid-js@1.8.17)
@@ -737,6 +740,23 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@solid-primitives/event-bus@1.0.11(solid-js@1.8.17):
+    resolution: {integrity: sha512-bSwVA4aI2aNHomSbEroUnisMSyDDXJbrw4U8kFEvrcYdlLrJX5i6QeCFx+vj/zdQQw62KAllrEIyWP8KMpPVnQ==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      '@solid-primitives/utils': 6.2.3(solid-js@1.8.17)
+      solid-js: 1.8.17
+    dev: false
+
+  /@solid-primitives/utils@6.2.3(solid-js@1.8.17):
+    resolution: {integrity: sha512-CqAwKb2T5Vi72+rhebSsqNZ9o67buYRdEJrIFzRXz3U59QqezuuxPsyzTSVCacwS5Pf109VRsgCJQoxKRoECZQ==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      solid-js: 1.8.17
+    dev: false
 
   /@solidjs/meta@0.29.4(solid-js@1.8.17):
     resolution: {integrity: sha512-zdIWBGpR9zGx1p1bzIPqF5Gs+Ks/BH8R6fWhmUa/dcK1L2rUC8BAcZJzNRYBQv74kScf1TSOs0EY//Vd/I0V8g==}

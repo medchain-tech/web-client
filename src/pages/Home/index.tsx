@@ -1,5 +1,6 @@
 import "./index.scss"
 import CustomInput, { CustomInputProps } from "@/components/CustomInput";
+import Timeline from "@/components/Timeline";
 import { MEDICAL_UNITS } from "@/composables/data";
 import { type JSXElement } from "solid-js";
 
@@ -22,6 +23,8 @@ const Home = (): JSXElement => {
       <div class="home-form">
         <CustomInput {...inputProps} />
       </div>
+
+      <Timeline />
     </>
   )
 
