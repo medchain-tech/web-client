@@ -23,7 +23,11 @@ const HospitalHome = (): JSXElement => {
 
 
 		<div class="hhome-main">
-			<DiseaseChart />
+
+			<div class="hhome-charts">
+				<DiseaseChart />
+
+			</div>
 
 
 		</div>

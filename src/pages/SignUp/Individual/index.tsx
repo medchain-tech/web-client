@@ -6,7 +6,6 @@ import CustomButton from "@/components/CustomButton";
 import { readForm } from "@/composables/forms";
 import { useStore } from "@nanostores/solid";
 import { $currentDoctorForm, FORM_CODES } from "@/stores/forms";
-import Timeline from "@/components/Timeline";
 const pageOneInputs: CustomInputProps[] = [
     {
         type: "text",
