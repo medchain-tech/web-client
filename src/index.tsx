@@ -12,6 +12,10 @@ import App from './App'
 const root = document.getElementById('root')
 const Home = lazy(() => import("./pages/Home/index"))
 const DoctorPage = lazy(() => import("./pages/Doctor/index"))
+const Dashboard = lazy(() => import("./layouts/Dashboard/index"))
+const UserLayout = lazy(() => import("./layouts/UserPage/index"))
+
+const HospitalHome = lazy(() => import("./pages/HospitalHome/index"))
 
 render(() =>
   <Router>
@@ -23,7 +27,13 @@ render(() =>
 
     <Route path="/" component={App}>
       <Route path="/" component={Home} />
-      <Route path="/records" component={DoctorPage} />
+      <Route path="/user" component={UserLayout}>
+        <Route path="/dashboard" component={Dashboard}>
+          <Route path="/hospital" component={HospitalHome} />
+        </Route>
+
+        <Route path="/records" component={DoctorPage} />
+      </Route>
     </Route>
 
   </Router>,

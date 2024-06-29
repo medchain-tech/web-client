@@ -27,8 +27,11 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
-		width: min(60vw, 450px);
 		// margin-inline-start: auto;
+
+		@media (min-width: 800px) {
+			width: min(60vw, 450px);
+		}
 	}
 
 	&-label,
@@ -43,7 +46,19 @@
 		background: var(--clr-bg-secondary);
 		outline: none;
 		min-width: 0;
-		width: inherit;
+		width: 0px;
+
+
+		@media (max-width: 800px) {
+			&:focus {
+				width: inherit;
+			}
+		}
+
+
+		@media (min-width: 800px) {
+			width: inherit;
+		}
 
 		&:focus-visible {
 			border: 1px solid var(--clr-primary-pressed);
@@ -59,7 +74,6 @@
 		background: none;
 		outline: none;
 		padding-left: 0.5rem;
-		pointer-events: none;
 	}
 
 }

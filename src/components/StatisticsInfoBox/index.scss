@@ -1,0 +1,47 @@
+.sinfobox {
+
+	display: flex;
+	flex-flow: row nowrap;
+	gap: 0 0.5rem;
+	min-width: 225px;
+	padding: 0.5rem 0.75rem 0.7rem;
+	background: var(--clr-bg-secondary);
+	border-radius: 0.5rem;
+	border: 1px solid var(--clr-bg-secondary);
+	height: fit-content;
+
+	&-img {
+		--icon-size: 35px;
+		align-self: start;
+		background: var(--clr-lavender-pressed);
+		color: var(--clr-bg-primary);
+		padding: 0.5rem;
+		border-radius: 50%;
+		aspect-ratio: 1;
+		margin-top: 0.15rem;
+	}
+
+	&-name,
+	&-number {
+		width: fit-content;
+	}
+
+
+	&-name {
+		color: var(--clr-content-4);
+		font-weight: 500;
+	}
+
+
+	&-number {
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: calc(var(--fs-md) * 1.75);
+		letter-spacing: -1.5px;
+		line-height: 1.25;
+		color: var(--clr-content-2);
+	}
+
+
+
+}

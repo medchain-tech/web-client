@@ -1,0 +1,11 @@
+.dchart-main {
+	--custom-grid-area: var(--grid-area, auto);
+
+
+	width: 700px;
+	overflow-x: auto;
+	background: var(--clr-bg-secondary);
+	border-radius: 0.5rem;
+	border: 3px solid var(--clr-bg-secondary);
+	grid-area: var(--custom-grid-area);
+}

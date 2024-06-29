@@ -1,8 +1,9 @@
 .notification {
+	--notification-image-size: var(--custom-notification-image-size, 30px);
 	display: grid;
 	gap: 0.5rem;
 	grid-template-columns: var(--notification-image-size) 1fr;
-	font-size: calc(var(--fs-sm) * 1.05);
+	font-size: calc(var(--fs-sm) * 1);
 
 
 	&-image {

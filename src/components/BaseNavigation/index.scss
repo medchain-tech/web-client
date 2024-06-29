@@ -1,13 +1,20 @@
 body.user-nav {
-    grid-template-areas: "header main";
-    grid-template-columns: minmax(22.5vw, 300px) 1fr;
+
+    grid-template-areas:
+        "main"
+    ;
+
+    @media (min-width: 950px) {
+        grid-template-areas: "header main";
+        grid-template-columns: minmax(22.5vw, 270px) 1fr;
+    }
 }
 
 .basenav {
 
     &-header {
+        display: none;
         grid-column: header;
-        display: grid;
         grid-template-rows: auto 1fr auto;
         grid-template-areas:
             "header"
@@ -24,6 +31,10 @@ body.user-nav {
         border-inline-end: 0.5px solid var(--clr-bg-secondary);
         font-size: var(--fs-md);
         overflow-x: hidden;
+
+        @media (min-width: 950px) {
+            display: grid;
+        }
     }
 
     &-logo {
@@ -117,9 +128,9 @@ body.user-nav {
 
     &-user {
         display: grid;
+        gap: 0.2rem;
         grid-template-columns: 40px 1fr;
-        flex-flow: row;
-        place-items: start center;
+        place-items: center start;
         grid-row: user;
         padding: 0.75rem 0 0.5rem;
         margin-top: 1.5rem;
@@ -137,6 +148,10 @@ body.user-nav {
 
     &-user-content {
         display: grid;
+    }
+
+    &-user-email {
+        font-size: calc(var(--fs-md) * 0.9);
     }
 
 }

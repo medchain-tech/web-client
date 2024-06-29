@@ -1,0 +1,27 @@
+.hhome-header {
+	overflow-x: auto;
+	width: inherit;
+
+	&-stats {
+		list-style: none;
+		display: flex;
+		align-items: start;
+		flex-flow: row;
+		gap: 1rem;
+		width: fit-content;
+		overflow-x: auto;
+		padding: 1rem 1.5rem;
+	}
+
+	&-stat {
+		display: contents;
+	}
+
+
+}
+
+
+.hhome-main {
+	padding: 1rem 1.5rem 1.25rem;
+	overflow-x: auto;
+}

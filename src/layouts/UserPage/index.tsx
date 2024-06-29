@@ -22,6 +22,7 @@ const UserPage = (props: ParentProps): JSXElement => {
 
 		<section class="upage-body">
 			<div class="upage-main">
+
 				{props.children}
 			</div>
 
@@ -37,3 +38,16 @@ const UserPage = (props: ParentProps): JSXElement => {
 }
 
 export default UserPage
+
+
+/**
+ *
+ *				<div class="upage-header-mobile">
+					<h2 class="upage-header-mobile-text">Dashboard</h2>
+					<button class="upage-header-mobile-notifications">
+						<svg viewBox="0 0 256 256"><use href="#bell"></use></svg>
+					</button>
+				</div>
+
+
+ */
