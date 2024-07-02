@@ -21,6 +21,37 @@ export const SignUpLayout = (props: ParentProps): JSXElement => {
         </section>
         <section class="slayout-children">
           {props.children}
+
+          <div class="slayout-back-bar">
+            <button class="slayout-back-button">
+              <svg class="slayout-back-icon" viewBox="0 0 24 24"><use href="#left"></use></svg>
+            </button>
+          </div>
+
+          <div class="catype">
+
+            <h2 class="catype-heading" data-slayout="heading">Choose an account</h2>
+            <p class="catype-desc" id="catype-options">Choose user type and get started with Medchain</p>
+
+
+            <div aria-labelledby="catype-options" role="radiogroup" class="catype-options-list">
+              <button class="catype-option" aria-checked="true" role="radio">
+                <strong class="catype-option-strong">Patient</strong>
+                <p class="catype-option-text">Create patient/personal account</p>
+              </button>
+              <button class="catype-option" aria-checked="false" role="radio">
+                <strong class="catype-option-strong">Healthcare Professional</strong>
+                <p class="catype-option-text">Create healthcare professional account</p>
+              </button>
+              <button class="catype-option" aria-checked="false" role="radio">
+                <strong class="catype-option-strong">Hospital administrator</strong>
+                <p class="catype-option-text">Create hospital account</p>
+              </button>
+            </div>
+
+            <button class="catype-button">Next</button>
+          </div>
+
         </section>
       </div>
 

@@ -21,19 +21,24 @@
 
 .slayout-main {
 	grid-area: slayout-main;
+	display: grid;
+	gap: 0.5rem;
+	align-items: start;
+	align-content: start;
 	overflow: hidden;
 	padding: 0.15rem 1.25rem 1.2rem;
 
 	&-strong {
 		font-weight: 500;
-		font-size: calc(var(--fs-md) * 1.5);
+		font-size: calc(var(--fs-md) * 1.75);
 		color: var(--clr-orange-base);
 	}
 
 
 	&-heading {
 		font-weight: 600;
-		font-size: clamp(1.5rem, 1.5rem + 3vw, 5ch);
+		font-size: calc(var(--fs-md) * 2.5);
+		color: var(--clr-content-1);
 		line-height: 1.15;
 		max-width: 700px;
 	}
@@ -43,18 +48,11 @@
 	}
 
 	&-p {
-		font-size: calc(var(--fs-md) * 1.2);
 		margin-top: 0.5rem;
-		line-height: 1.5;
+		line-height: 1.75;
+		font-size: calc(var(--fs-md) * 1.05);
 	}
 
-	&-image {
-		margin-top: 2rem;
-		width: 1000px;
-		aspect-ratio: 1;
-		background: var(--clr-content-4);
-		border-radius: 0.5rem;
-	}
 }
 
 
@@ -63,4 +61,73 @@
 	grid-area: slayout-children;
 	background: var(--clr-bg-primary);
 	box-shadow: 0 2px 5px 1px hsl(0deg 0% 2% / 10%);
+	overflow-y: auto;
+}
+
+
+.slayout-back-bar {
+	padding: 0.95rem 1.25rem 1rem;
+
+}
+
+[data-slayout="heading"] {
+	font-weight: 600;
+	font-size: calc(var(--fs-md) * 2.25);
+	line-height: 1;
+	color: var(--clr-content-1);
+}
+
+
+
+.catype {
+	display: grid;
+	width: min(500px, calc(100% - 2rem));
+	align-items: start;
+	margin-inline: auto;
+
+	&-desc {
+		margin-top: 0.15rem;
+		font-size: calc(var(--fs-md) * 1.05);
+	}
+
+
+
+	&-options-list {
+		display: grid;
+		gap: 0.75rem;
+		margin-top: 1.5rem;
+	}
+
+
+	&-option {
+		display: grid;
+		align-items: stretch;
+		text-align: left;
+		padding: 0.65rem 0.95rem 0.75rem;
+		background: var(--clr-lavender-border);
+		border: none;
+		border-radius: 0.5rem;
+		color: var(--clr-content-3);
+	}
+
+
+	&-option-strong {
+		color: var(--clr-content-1);
+		font-weight: 500;
+	}
+
+
+	&-button {
+		margin: 2.25rem auto auto;
+		background: var(--clr-primary-pressed);
+		color: var(--clr-bg-primary);
+		border: none;
+		border-radius: 0.5rem;
+		width: fit-content;
+		font-size: calc(var(--fs-md) * 1.55);
+		padding: 0.65rem 2.25rem 0.7rem;
+		font-weight: 400;
+		text-transform: uppercase;
+
+	}
 }
