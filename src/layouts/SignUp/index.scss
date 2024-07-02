@@ -1,0 +1,66 @@
+.slayout {
+	display: grid;
+
+	grid-template-rows:
+		[slayout-header-start slayout-children-start] auto [slayout-header-end slayout-main-start] 1fr [slayout-main-end slayout-children-end];
+	grid-template-columns:
+		[slayout-header-start slayout-main-start] 1fr [slayout-header-end slayout-main-end slayout-children-start] 1fr [slayout-children-end];
+
+	gap: 0.5rem;
+	height: 100vh;
+	background-color: var(--clr-bg-secondary);
+	background-image: url('/aare.svg');
+}
+
+
+.slayout-header {
+	grid-area: slayout-header;
+	padding: 1rem 1.25rem 1.2rem;
+}
+
+
+.slayout-main {
+	grid-area: slayout-main;
+	overflow: hidden;
+	padding: 0.15rem 1.25rem 1.2rem;
+
+	&-strong {
+		font-weight: 500;
+		font-size: calc(var(--fs-md) * 1.5);
+		color: var(--clr-orange-base);
+	}
+
+
+	&-heading {
+		font-weight: 600;
+		font-size: clamp(1.5rem, 1.5rem + 3vw, 5ch);
+		line-height: 1.15;
+		max-width: 700px;
+	}
+
+	&-heading-span {
+		color: var(--clr-primary-pressed);
+	}
+
+	&-p {
+		font-size: calc(var(--fs-md) * 1.2);
+		margin-top: 0.5rem;
+		line-height: 1.5;
+	}
+
+	&-image {
+		margin-top: 2rem;
+		width: 1000px;
+		aspect-ratio: 1;
+		background: var(--clr-content-4);
+		border-radius: 0.5rem;
+	}
+}
+
+
+
+.slayout-children {
+	grid-area: slayout-children;
+	background: var(--clr-bg-primary);
+	box-shadow: 0 2px 5px 1px hsl(0deg 0% 2% / 10%);
+}

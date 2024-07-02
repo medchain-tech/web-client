@@ -21,8 +21,6 @@ render(() =>
   <Router>
 
     <Route path="/signup" component={SignUpLayout}>
-      <Route path="/" component={Individual}></Route>
-      <Route path="/doctor" component={Doctor}></Route>
     </Route>
 
     <Route path="/" component={App}>

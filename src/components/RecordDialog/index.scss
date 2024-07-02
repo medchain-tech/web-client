@@ -4,7 +4,7 @@
 		position: fixed;
 		inset: 0;
 		z-index: var(--z-dialog);
-		background: hsl(0 0 0 / 40%);
+		background: hsl(0deg 0% 0% / 40%);
 		backdrop-filter: blur(5px);
 		height: 100vh;
 		overflow: auto;
