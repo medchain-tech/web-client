@@ -14,18 +14,22 @@
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.13.3",
     "chart.js": "^4.4.3",
-    "solid-js": "^1.8.15"
+    "solid-js": "^1.8.15",
+    "solid-icons": "^1.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^8.4.0",
     "@nanostores/solid": "^0.4.2",
     "@types/node": "^20.12.7",
+    "autoprefixer": "^10.4.19",
     "eslint": "8.56.0",
     "eslint-plugin-solid": "^0.14.0",
     "globals": "^15.4.0",
     "nanostores": "^0.10.3",
     "path": "^0.12.7",
+    "postcss": "^8.4.39",
     "sass": "^1.76.0",
+    "tailwindcss": "^3.4.4",
     "typescript": "^5.2.2",
     "typescript-eslint": "^7.12.0",
     "vite": "^5.2.0",

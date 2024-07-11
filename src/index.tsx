@@ -18,21 +18,26 @@ const UserLayout = lazy(() => import("./layouts/UserPage/index"))
 const HospitalHome = lazy(() => import("./pages/HospitalHome/index"))
 
 render(() =>
-  <Router>
+  // <Router>
 
-    <Route path="/signup" component={SignUpLayout}>
-    </Route>
+  //   <Route path="/signup" component={SignUpLayout}>
+  //   </Route>
 
-    <Route path="/" component={App}>
-      <Route path="/" component={Home} />
-      <Route path="/user" component={UserLayout}>
-        <Route path="/dashboard" component={Dashboard}>
-          <Route path="/hospital" component={HospitalHome} />
-        </Route>
+  //   <Route path="/" component={App}>
+  //     <Route path="/" component={Home} />
+  //     <Route path="/user" component={UserLayout}>
+  //       <Route path="/dashboard" component={Dashboard}>
+  //         <Route path="/hospital" component={HospitalHome} />
+  //       </Route>
 
-        <Route path="/records" component={DoctorPage} />
-      </Route>
-    </Route>
+  //       <Route path="/records" component={DoctorPage} />
+  //     </Route>
+  //   </Route>
 
-  </Router>,
+  // </Router>,
+
+  (
+    <App/>
+  ),
+  
   root!)
