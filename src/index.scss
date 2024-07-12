@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     // COLORS
     --clr-content-1: #292729;
@@ -97,6 +101,8 @@ body {
     accent-color: var(--clr-primary-pressed);
     align-content: start;
     display: grid;
+    width: 100vw;
+    overflow-x: hidden;
 
     &.modal-open {
         overflow: hidden;
@@ -143,3 +149,46 @@ button {
     width: 1px !important;
     white-space: nowrap !important;
 }
+
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+.section1 h2{
+    font-weight: 600;
+    font-size: 48px;
+}  
+
+.navList:hover {
+    border-bottom: 3px solid #6833FB;
+    transition: ease-in-out .2s;
+}
+
+.buttonSignUp{
+    color: white;
+    background-color: #6833FB;
+    border-radius: 12px;
+    border: 2px solid ;
+    padding: 12px;
+}
+
+.buttonSignUp:hover{
+    color: #6833FB;
+    background-color: white;
+    transition: ease-in-out .3s;
+}
+
+
+.HomeScreen1{
+        width: 90%;
+        
+        /* mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, .5) 50%, rgba(0, 0, 0, 1) 100%),;
+        -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%); */
+
+        mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, .5) 50%, rgba(0, 0, 0, 1) 100%),;
+        -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%);
+
+        
+    }
