@@ -65,6 +65,14 @@
 }
 
 
+.slayout-content {
+	margin: 0 auto 3rem;
+	width: min(450px, calc(100% - 4rem));
+	display: grid;
+
+}
+
+
 .slayout-back-bar {
 	padding: 0.95rem 1.25rem 1rem;
 
@@ -75,59 +83,4 @@
 	font-size: calc(var(--fs-md) * 2.25);
 	line-height: 1;
 	color: var(--clr-content-1);
-}
-
-
-
-.catype {
-	display: grid;
-	width: min(500px, calc(100% - 2rem));
-	align-items: start;
-	margin-inline: auto;
-
-	&-desc {
-		margin-top: 0.15rem;
-		font-size: calc(var(--fs-md) * 1.05);
-	}
-
-
-
-	&-options-list {
-		display: grid;
-		gap: 0.75rem;
-		margin-top: 1.5rem;
-	}
-
-
-	&-option {
-		display: grid;
-		align-items: stretch;
-		text-align: left;
-		padding: 0.65rem 0.95rem 0.75rem;
-		background: var(--clr-lavender-border);
-		border: none;
-		border-radius: 0.5rem;
-		color: var(--clr-content-3);
-	}
-
-
-	&-option-strong {
-		color: var(--clr-content-1);
-		font-weight: 500;
-	}
-
-
-	&-button {
-		margin: 2.25rem auto auto;
-		background: var(--clr-primary-pressed);
-		color: var(--clr-bg-primary);
-		border: none;
-		border-radius: 0.5rem;
-		width: fit-content;
-		font-size: calc(var(--fs-md) * 1.55);
-		padding: 0.65rem 2.25rem 0.7rem;
-		font-weight: 400;
-		text-transform: uppercase;
-
-	}
 }

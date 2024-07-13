@@ -1,10 +1,10 @@
 .form-textinput {
 
 	&-field {
-		--gap: 0.15rem;
-		--padding: var(--custom-input-padding, 0.45rem 0.75rem 0.55rem);
+		--gap: 0.25rem;
+		--padding: var(--custom-input-padding, 0.7rem 1rem 0.75rem);
 		--border-color: var(--clr-border);
-		--radius: 5px;
+		--radius: 10px;
 
 		display: grid;
 		gap: var(--gap);
@@ -15,28 +15,54 @@
 	}
 
 	&-input,
-	&-reveal {
+	&-select,
+	&-reveal,
+	&-selecticon {
 		grid-row: 2 / 3;
 	}
 
-	&-input {
+	&-input,
+	&-select,
+	&-textarea {
 		padding: var(--padding);
 		border: 1px solid var(--border-color);
 		border-radius: var(--radius);
 		background: var(--clr-bg-primary);
+		min-width: 0;
+
+
+		&:focus-visible {
+			outline: 2px solid var(--clr-primary-pressed);
+		}
 	}
 
-	&-input[type="number"] {
+	&-input[type="number"],
+	&-select {
 		appearance: none;
 	}
 
 	&-input[data-type="password"],
-	&-reveal {
+	&-select,
+	&-reveal,
+	&-selecticon,
+	&-numprefix,
+	&-input[type="tel"] {
 		grid-column: 1 / -1;
 		grid-row: 2 / 3;
 	}
 
-	&-reveal {
+
+	&-input[type="tel"] {
+		padding-left: 6ch;
+	}
+
+	&-error {
+		font-size: var(--custom-error-size, var(--fs-sm));
+	}
+
+	&-reveal,
+	&-selecticon,
+	&-numprefix {
 		--icon-size: 20px;
 		align-self: center;
 		justify-self: end;
@@ -45,7 +71,23 @@
 		border: none;
 		width: fit-content;
 		margin-inline-end: 10px;
+		font-size: calc(var(--fs-sm) * 1);
+		font-weight: 500;
 		color: var(--clr-content-3);
+	}
+
+	&-numprefix {
+		justify-self: start;
+		margin-inline: 10px auto;
+	}
+
+	&-reveal {
+		color: var(--clr-primary-pressed);
+	}
+
+	&-selecticon {
+		--icon-size: 25px;
+		pointer-events: none;
 	}
 
 	&-select {

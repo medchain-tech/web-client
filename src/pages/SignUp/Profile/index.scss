@@ -1,0 +1,30 @@
+.sprofile {
+	&-desc {
+		margin-top: 0.5rem;
+	}
+}
+
+.sprofile-form {
+	--gap-x: 1rem;
+	--gap-y: 1rem;
+	margin-top: 1.5rem;
+	display: flex;
+	flex-flow: row wrap;
+	gap: var(--gap-y) var(--gap-x);
+
+
+	&>* {
+		width: 100%;
+	}
+
+
+	@media (min-width: 900px) {
+
+		.form-textinput-field[data-inputid="dob"],
+		.form-textinput-field[data-inputid="gender"],
+		.form-textinput-field[data-inputid="first-name"],
+		.form-textinput-field[data-inputid="last-name"] {
+			width: calc(50% - (var(--gap-x) / 2))
+		}
+	}
+}

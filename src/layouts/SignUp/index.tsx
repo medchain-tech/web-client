@@ -1,9 +1,36 @@
 import { Assets } from "@/components/Assets"
-import type { JSXElement, ParentProps } from "solid-js"
+import { Show, mergeProps, type JSXElement, type ParentProps } from "solid-js"
+import { SidebarInfo } from "../SignUpSidebar"
 import "./index.scss"
 
 
-export const SignUpLayout = (props: ParentProps): JSXElement => {
+export interface SignUpLayoutProps extends ParentProps {
+  sidebar: JSXElement
+  backButton?: {
+    show: boolean
+    onClick: () => void
+  }
+}
+
+export const SignUpLayout = (props: SignUpLayoutProps): JSXElement => {
+
+
+  const mergedProps = mergeProps({
+    sidebar: SidebarInfo,
+    backButton: {
+      show: true,
+    }
+  }, props)
+
+
+  const clickBackButton = () => {
+    const buttonHasClick = Object.keys(mergedProps.backButton).includes("onClick")
+    if (!buttonHasClick) return
+
+    //@ts-expect-error Too much type-gymnastics
+    const onClick = mergedProps.backButton.onClick as unknown as (() => void)
+    onClick()
+  }
 
   return (
     <>
@@ -14,44 +41,22 @@ export const SignUpLayout = (props: ParentProps): JSXElement => {
           <img class="slayout-header-image" src="/logo.svg" alt="Logo" />
         </section>
         <section class="slayout-main">
-          <strong class="slayout-main-strong">MedChain</strong>
-          <h1 class="slayout-main-heading">Transforming Healthcare with <span class="slayout-main-heading-span">Secure EHR Solutions</span></h1>
-          <p class="slayout-main-p">A transformative approach to managing healthcare records and monitor diseases enhancing healthcare delivery in Africa.</p>
-          <img class="slayout-main-image" />
+          {mergedProps.sidebar}
         </section>
         <section class="slayout-children">
-          {props.children}
-
-          <div class="slayout-back-bar">
-            <button class="slayout-back-button">
-              <svg class="slayout-back-icon" viewBox="0 0 24 24"><use href="#left"></use></svg>
-            </button>
-          </div>
-
-          <div class="catype">
-
-            <h2 class="catype-heading" data-slayout="heading">Choose an account</h2>
-            <p class="catype-desc" id="catype-options">Choose user type and get started with Medchain</p>
 
 
-            <div aria-labelledby="catype-options" role="radiogroup" class="catype-options-list">
-              <button class="catype-option" aria-checked="true" role="radio">
-                <strong class="catype-option-strong">Patient</strong>
-                <p class="catype-option-text">Create patient/personal account</p>
-              </button>
-              <button class="catype-option" aria-checked="false" role="radio">
-                <strong class="catype-option-strong">Healthcare Professional</strong>
-                <p class="catype-option-text">Create healthcare professional account</p>
-              </button>
-              <button class="catype-option" aria-checked="false" role="radio">
-                <strong class="catype-option-strong">Hospital administrator</strong>
-                <p class="catype-option-text">Create hospital account</p>
+          <Show when={mergedProps.backButton.show}>
+            <div class="slayout-back-bar">
+              <button class="slayout-back-button" onClick={clickBackButton}>
+                <svg class="slayout-back-icon" viewBox="0 0 24 24"><use href="#left"></use></svg>
               </button>
             </div>
+          </Show>
 
-            <button class="catype-button">Next</button>
+          <div class="slayout-content">
+            {props.children}
           </div>
-
         </section>
       </div>
 

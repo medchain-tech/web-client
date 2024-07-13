@@ -1,0 +1,48 @@
+.custom-radio {
+
+	&-list {
+		display: grid;
+		gap: 0.75rem;
+		margin-top: 1.5rem;
+	}
+
+
+	&-option {
+		display: flex;
+		gap: 0.5rem;
+		align-items: start;
+		padding: 0.7rem 0.95rem 0.75rem;
+		background: var(--clr-lblue);
+		border: none;
+		border-radius: 0.5rem;
+		color: var(--clr-content-3);
+
+		&[checked] {
+			outline: 2px solid var(--clr-primary-pressed);
+			background: var(--clr-lavender-border);
+		}
+
+	}
+
+	&-input {
+		margin-top: 0.35rem;
+	}
+
+	&-content {
+		display: grid;
+		align-items: stretch;
+		text-align: left;
+		cursor: pointer;
+
+
+	}
+
+
+	&-title {
+		color: var(--clr-content-1);
+		font-weight: 500;
+	}
+
+
+
+}

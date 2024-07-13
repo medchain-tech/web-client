@@ -48,8 +48,12 @@ interface TextAreaProps extends BaseInputProps {
   max: number
 }
 
+interface DateProps extends BaseInputProps {
+  type: "date"
+}
 
-export type CustomInputProps = TextProps | NumberProps | TelProps | EmailProps | PasswordProps | SelectProps | TextAreaProps
+
+export type CustomInputProps = TextProps | NumberProps | TelProps | EmailProps | PasswordProps | SelectProps | TextAreaProps | DateProps
 
 
 const CustomInput = (props: CustomInputProps): JSXElement => {
@@ -137,6 +141,17 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             required={inputProps.required} />
         </Match>
 
+
+        <Match when={inputProps.type === "date"}>
+          <input
+            id={inputProps.id}
+            type="date"
+            class="form-textinput-input"
+            name={inputProps.id}
+            placeholder={inputProps.placeholder}
+            required={inputProps.required} />
+        </Match>
+
         <Match when={inputProps.type === "tel"}>
           <input
             id={inputProps.id}
@@ -147,6 +162,8 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             required={inputProps.required}
             inputmode="tel"
           />
+
+          <span class="form-textinput-numprefix">+234 |</span>
         </Match>
 
 
@@ -163,10 +180,11 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
 
           <Show when={inputProps.type === "password" && inputProps.revealPassword}>
             <button type="button" class="form-textinput-reveal" onClick={toggleShowPassword}>
-              <svg viewBox="0 0 24 24">
+              {/**<svg viewBox="0 0 24 24">
                 <title>{showPassword() ? "Hide Password" : "Reveal Password"}</title>
                 <use href="#eye-tracking"></use>
-              </svg>
+              </svg>**/}
+              {showPassword() ? "Hide" : "Show"}
             </button>
           </Show>
         </Match>
@@ -174,11 +192,19 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
         <Match when={inputProps.type === "select"}>
           {
             inputProps.type === "select" &&
-            (<select class="form-textinput-select" name={inputProps.id} id={inputProps.id}>
-              <For each={inputProps.options}>
-                {(option) => <option class="form-textinput-option" value={option}>{option}</option>}
-              </For>
-            </select>)
+            (<>
+
+              <select class="form-textinput-select" name={inputProps.id} id={inputProps.id}>
+                <For each={inputProps.options}>
+                  {(option) => <option class="form-textinput-option" value={option}>{option}</option>}
+                </For>
+              </select>
+
+
+              <span role="presentation" class="form-textinput-selecticon">
+                <svg viewBox="0 0 24 24"><use href="#right"></use></svg>
+              </span>
+            </>)
           }
         </Match>
 

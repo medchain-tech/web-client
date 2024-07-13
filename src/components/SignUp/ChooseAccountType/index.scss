@@ -1,0 +1,26 @@
+.catype {
+	display: grid;
+	align-items: start;
+	margin-inline: auto;
+
+	&-desc {
+		margin-top: 0.15rem;
+		font-size: calc(var(--fs-md) * 1.05);
+	}
+
+
+
+	&-button {
+		margin: 2.25rem auto auto;
+		background: var(--clr-primary-pressed);
+		color: var(--clr-bg-primary);
+		border: none;
+		border-radius: 0.5rem;
+		width: fit-content;
+		font-size: calc(var(--fs-md) * 1.55);
+		padding: 0.65rem 2.25rem 0.7rem;
+		font-weight: 400;
+		text-transform: uppercase;
+
+	}
+}
