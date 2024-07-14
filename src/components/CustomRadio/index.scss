@@ -1,9 +1,10 @@
 .custom-radio {
 
 	&-list {
-		display: grid;
-		gap: 0.75rem;
-		margin-top: 1.5rem;
+		display: flex;
+		flex-flow: row wrap;
+		gap: var(--custom-gap, 0.5rem);
+		margin: var(--custom-margin, 1rem 0 0);
 	}
 
 
@@ -16,6 +17,7 @@
 		border: none;
 		border-radius: 0.5rem;
 		color: var(--clr-content-3);
+		width: var(--custom-width, 100%);
 
 		&[checked] {
 			outline: 2px solid var(--clr-primary-pressed);

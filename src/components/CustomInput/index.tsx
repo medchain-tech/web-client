@@ -31,6 +31,8 @@ interface TelProps extends BaseInputProps {
   type: 'tel'
 }
 
+
+
 interface PasswordProps extends BaseInputProps {
   type: 'password'
   pattern?: string
@@ -44,8 +46,6 @@ interface SelectProps extends BaseInputProps {
 
 interface TextAreaProps extends BaseInputProps {
   type: 'textarea'
-  min: number
-  max: number
 }
 
 interface DateProps extends BaseInputProps {
@@ -63,10 +63,8 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
     type: "textarea",
     id: "text-input",
     label: "Props",
-    required: false,
+    required: true,
     placeholder: "Enter great text",
-    max: 50,
-    min: 10
   }
 
   const INPUT_TEXT_TYPE = "text"
@@ -128,6 +126,8 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             name={inputProps.id}
             placeholder={inputProps.placeholder}
             required={inputProps.required}
+            min={inputProps.type === "number" ? inputProps?.min : 1}
+            max={inputProps.type === "number" ? inputProps?.max : 100}
           />
         </Match>
 
@@ -213,8 +213,6 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             class="form-textinput-textarea"
             name={inputProps.id}
             id={inputProps.id}
-            minLength={inputProps.min}
-            maxlength={inputProps.max}
             placeholder={inputProps.placeholder}></textarea>
         </Match>
       </Switch>

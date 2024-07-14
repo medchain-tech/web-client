@@ -14,6 +14,7 @@ import { AccountType } from './types'
 import { Start } from './pages/SignUp/Start'
 import Verification from './pages/SignUp/Verification'
 import Profile from './pages/SignUp/Profile'
+import Hospital from './pages/SignUp/Hospital'
 
 const root = document.getElementById('root')
 /* const Home = lazy(() => import("./pages/Home/index"))
@@ -38,6 +39,7 @@ render(() =>
       <Route path="/:accountType/start" matchFilters={accountTypeFilters} component={Start} />
       <Route path="/:accountType/verify" matchFilters={accountTypeFilters} component={Verification} />
       <Route path="/:accountType/profile" matchFilters={profileSetupFilters} component={Profile} />
+      <Route path="/hospital/needs" component={Hospital} />
     </Route>
 
     <Route path="/" component={App}>

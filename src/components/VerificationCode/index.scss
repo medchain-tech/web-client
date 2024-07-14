@@ -1,0 +1,25 @@
+.vinput {
+	display: flex;
+	gap: 0.5rem;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+	margin: 1rem auto 0;
+
+	&-box {
+		font-size: calc(var(--fs-sm) * 1.85);
+		width: 60px;
+		border-radius: 0.5rem;
+		aspect-ratio: 1;
+		border: 2px solid var(--clr-bg-secondary);
+		display: flex;
+		place-items: center;
+		place-content: center;
+		font-weight: 500;
+
+
+		&[data-active=true] {
+			border-color: var(--clr-primary-pressed);
+		}
+	}
+}

@@ -30,11 +30,12 @@ const CustomRadio = (props: CustomRadioProps) => {
     >
       <For each={props.options}>
         {(option, index) => (
-          <label class="custom-radio-option">
+          <label class="custom-radio-option" id={props.labelId}>
             <input
               class="custom-radio-input"
               required={true}
               type="radio"
+              id={props.name}
               name={props.name}
               value={option.value}
               checked={index() === selectedIndex()}
