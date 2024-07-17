@@ -1,4 +1,4 @@
-import CustomInput, { CustomInputProps } from "@/components/CustomInput"
+import CustomInput, { CustomInputProps } from "@components/CustomInput"
 import CustomRadio, { CustomRadioProps } from "@/components/CustomRadio"
 import { SignUpLayout } from "@/layouts/SignUp"
 import { SidebarTimeline } from "@/layouts/SignUpSidebar"

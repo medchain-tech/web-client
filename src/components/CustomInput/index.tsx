@@ -179,7 +179,7 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             pattern={inputProps.type === "password" ? inputProps.pattern : ""} />
 
           <Show when={inputProps.type === "password" && inputProps.revealPassword}>
-            <button type="button" class="form-textinput-reveal" onClick={toggleShowPassword}>
+            <button tabindex={-1} type="button" class="form-textinput-reveal" onClick={toggleShowPassword}>
               {/**<svg viewBox="0 0 24 24">
                 <title>{showPassword() ? "Hide Password" : "Reveal Password"}</title>
                 <use href="#eye-tracking"></use>
