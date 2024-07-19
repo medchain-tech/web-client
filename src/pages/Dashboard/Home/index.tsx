@@ -102,11 +102,77 @@ const Home = (): JSXElement => {
 
 			<div class="dcontent">
 				<header class="dheader">
-					<strong>Header</strong>
+					<strong class="dheader-title">Dashboard</strong>
+					<form class="dheader-search">
+						<label class="dheader-slabel" for="dheader-search">
+							<svg viewBox="0 0 24 24"><use href="#search"></use></svg>
+						</label>
+						<input class="dheader-sinput" id="dheader-search" name="dheader-search" type="search" placeholder="Search for anything..." />
+					</form>
+
+					<div class="dheader-profile">
+
+						<button class="dheader-pbutton" title="Messages">
+							<svg viewBox="0 0 24 24">
+								<use href="#message-dots"></use>
+							</svg>
+						</button>
+
+
+						<button class="dheader-pbutton" title="Notifications">
+							<svg viewBox="0 0 24 24">
+								<use href="#bell"></use>
+							</svg>
+						</button>
+
+
+						<details class="dheader-puser">
+							<summary class="dheader-psummary">
+								<img src="/user.png" alt="User Name" class="dheader-pimg" />
+
+								<div class="dheader-pcontent">
+									<strong class="dheader-pname">Wasiu Maleek</strong>
+									<p class="dheader-ptype">Admin</p>
+								</div>
+
+								<svg role="presentation" class="dheader-pdown-arrow" viewBox="0 0 24 24"><use href="#down"></use></svg>
+							</summary>
+
+						</details>
+
+					</div>
+
 				</header>
 
 				<div class="dbody">
-					<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci placeat deserunt eius debitis quibusdam, iusto asperiores quae nisi sit quo perferendis praesentium sapiente. Perspiciatis totam dignissimos cupiditate tempora placeat sapiente tempore ducimus mollitia maxime! Iste doloribus vitae explicabo iusto quasi sapiente obcaecati, at corrupti. Error suscipit explicabo sed, a est maxime consequatur, quos quam repellat dolorem mollitia iure animi veniam, ratione quisquam id ad eveniet?</p>
+
+					<div class="padmin" id="dashboard-admin">
+						<section data-span="1" class="padmin-over">
+							<strong class="padmin-over-greeting">Hi UCH Admin 👋</strong>
+							<p class="padmin-over-text">Here is today’s patient treatments overview</p>
+
+							<dl class="padmin-over-list">
+								<div class="padmin-over-field">
+									<dt class="padmin-over-title">Ongoing</dt>
+									<dd class="padmin-over-number">10</dd>
+								</div>
+
+
+								<div class="padmin-over-field">
+									<dt class="padmin-over-title">Treated</dt>
+									<dd class="padmin-over-number">316</dd>
+								</div>
+							</dl>
+
+
+							<ul class="padmin-over-messages">
+								<li class="padmin-over-li">7 new test result is available</li>
+								<li class="padmin-over-li">7 new test result is available</li>
+								<li class="padmin-over-li">7 new test result is available</li>
+							</ul>
+						</section>
+
+					</div>
 				</div>
 			</div>
 		</div>

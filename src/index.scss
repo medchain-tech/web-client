@@ -9,6 +9,7 @@
     --clr-content-3: #8C9399;
     --clr-content-4: #8C9399;
     --clr-content-5: #292729;
+    --clr-content-6: #6F7177;
 
     --clr-off-white: #404B56;
     --clr-bg: #8C9399;
@@ -18,6 +19,7 @@
 
     --clr-bg-primary: #FFFFFF;
     --clr-bg-grey: #F9FAFB;
+    --clr-stroke: #F3F3F5;
 
     --clr-primary-base: #160245;
     --clr-primary-hover: #9186FF;
@@ -37,7 +39,6 @@
     --clr-lavender-border: #F7F6FF;
     --clr-lavender-bg: #FDFDFF;
 
-
     --clr-red-base: #E72B3B;
     --clr-red-hover: #EC5562;
     --clr-red-pressed: #B9222F;
@@ -49,6 +50,8 @@
     --clr-orange-pressed: #C76B00;
     --clr-orange-border: #FEE7CC;
     --clr-orange-bg: #FFF4E8;
+
+    --clr-indigo: #4F46E5;
 
     --clr-lblue: hsla(212deg 65% 95%);
 
@@ -75,6 +78,7 @@
     --z-dialog: 4;
     --z-toast: 5;
     --z-home: 2;
+    --z-nav: 3;
 
     font-family: var(--font-sans);
     color: var(--clr-content-2);
