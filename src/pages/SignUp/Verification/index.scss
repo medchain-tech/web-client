@@ -1,0 +1,39 @@
+.sverification {
+	text-align: center;
+
+	&-heading,
+	&-p,
+	&-msg {
+		align-self: center;
+		justify-self: center;
+		text-align: center;
+	}
+
+	&-heading {
+		font-size: calc(var(--fs-md) * 2.5);
+		font-weight: 500;
+		color: var(--clr-content-1);
+	}
+
+	&-time-bar {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 1.5rem;
+		align-items: center;
+		justify-content: center;
+		margin-top: 1rem;
+	}
+
+	&-time {
+		color: var(--clr-content-3);
+	}
+
+	&-p {
+		margin-top: 0.75rem;
+	}
+
+
+	&-msg {
+		margin-top: 1.25rem;
+	}
+}

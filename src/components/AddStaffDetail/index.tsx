@@ -70,8 +70,6 @@ const personalDetailsInputs: CustomInputProps[] = [
     id: "add-staff-acheivements",
     placeholder: "Provide a brief overview of the staff's background, experience and expertise. Highlight any significant acheivements, contributions to the field and other notable milestones",
     required: true,
-    min: 2,
-    max: 500,
   },
 
   {

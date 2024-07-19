@@ -1,0 +1,47 @@
+.catype {
+	&-desc {
+		margin-top: 0.15rem;
+		font-size: calc(var(--fs-md) * 1.05);
+	}
+
+
+
+	&-options-list {
+		display: grid;
+		gap: 0.75rem;
+		margin-top: 1.5rem;
+	}
+
+
+	&-option {
+		display: grid;
+		align-items: stretch;
+		text-align: left;
+		padding: 0.65rem 0.95rem 0.75rem;
+		background: var(--clr-lavender-border);
+		border: none;
+		border-radius: 0.5rem;
+		color: var(--clr-content-3);
+
+		&[aria-checked=true] {
+			background: var(--clr-primary-border);
+			border: 2px solid var(--clr-primary-pressed);
+		}
+
+		&:focus {
+			outline: 2px var(--clr-primary-pressed) dotted;
+		}
+	}
+
+
+	&-option-strong {
+		color: var(--clr-content-1);
+		font-weight: 500;
+	}
+
+
+	&-button {
+		--custom-margin: 2.25rem auto auto;
+		--custom-text-transform: uppercase;
+	}
+}

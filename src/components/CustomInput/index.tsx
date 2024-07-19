@@ -31,6 +31,8 @@ interface TelProps extends BaseInputProps {
   type: 'tel'
 }
 
+
+
 interface PasswordProps extends BaseInputProps {
   type: 'password'
   pattern?: string
@@ -44,12 +46,14 @@ interface SelectProps extends BaseInputProps {
 
 interface TextAreaProps extends BaseInputProps {
   type: 'textarea'
-  min: number
-  max: number
+}
+
+interface DateProps extends BaseInputProps {
+  type: "date"
 }
 
 
-export type CustomInputProps = TextProps | NumberProps | TelProps | EmailProps | PasswordProps | SelectProps | TextAreaProps
+export type CustomInputProps = TextProps | NumberProps | TelProps | EmailProps | PasswordProps | SelectProps | TextAreaProps | DateProps
 
 
 const CustomInput = (props: CustomInputProps): JSXElement => {
@@ -59,10 +63,8 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
     type: "textarea",
     id: "text-input",
     label: "Props",
-    required: false,
+    required: true,
     placeholder: "Enter great text",
-    max: 50,
-    min: 10
   }
 
   const INPUT_TEXT_TYPE = "text"
@@ -124,6 +126,8 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             name={inputProps.id}
             placeholder={inputProps.placeholder}
             required={inputProps.required}
+            min={inputProps.type === "number" ? inputProps?.min : 1}
+            max={inputProps.type === "number" ? inputProps?.max : 100}
           />
         </Match>
 
@@ -131,6 +135,17 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
           <input
             id={inputProps.id}
             type="email"
+            class="form-textinput-input"
+            name={inputProps.id}
+            placeholder={inputProps.placeholder}
+            required={inputProps.required} />
+        </Match>
+
+
+        <Match when={inputProps.type === "date"}>
+          <input
+            id={inputProps.id}
+            type="date"
             class="form-textinput-input"
             name={inputProps.id}
             placeholder={inputProps.placeholder}
@@ -147,6 +162,8 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             required={inputProps.required}
             inputmode="tel"
           />
+
+          <span class="form-textinput-numprefix">+234 |</span>
         </Match>
 
 
@@ -162,11 +179,12 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             pattern={inputProps.type === "password" ? inputProps.pattern : ""} />
 
           <Show when={inputProps.type === "password" && inputProps.revealPassword}>
-            <button type="button" class="form-textinput-reveal" onClick={toggleShowPassword}>
-              <svg viewBox="0 0 24 24">
+            <button tabindex={-1} type="button" class="form-textinput-reveal" onClick={toggleShowPassword}>
+              {/**<svg viewBox="0 0 24 24">
                 <title>{showPassword() ? "Hide Password" : "Reveal Password"}</title>
                 <use href="#eye-tracking"></use>
-              </svg>
+              </svg>**/}
+              {showPassword() ? "Hide" : "Show"}
             </button>
           </Show>
         </Match>
@@ -174,11 +192,19 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
         <Match when={inputProps.type === "select"}>
           {
             inputProps.type === "select" &&
-            (<select class="form-textinput-select" name={inputProps.id} id={inputProps.id}>
-              <For each={inputProps.options}>
-                {(option) => <option class="form-textinput-option" value={option}>{option}</option>}
-              </For>
-            </select>)
+            (<>
+
+              <select class="form-textinput-select" name={inputProps.id} id={inputProps.id}>
+                <For each={inputProps.options}>
+                  {(option) => <option class="form-textinput-option" value={option}>{option}</option>}
+                </For>
+              </select>
+
+
+              <span role="presentation" class="form-textinput-selecticon">
+                <svg viewBox="0 0 24 24"><use href="#right"></use></svg>
+              </span>
+            </>)
           }
         </Match>
 
@@ -187,8 +213,6 @@ const CustomInput = (props: CustomInputProps): JSXElement => {
             class="form-textinput-textarea"
             name={inputProps.id}
             id={inputProps.id}
-            minLength={inputProps.min}
-            maxlength={inputProps.max}
             placeholder={inputProps.placeholder}></textarea>
         </Match>
       </Switch>

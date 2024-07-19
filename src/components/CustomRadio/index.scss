@@ -1,0 +1,50 @@
+.custom-radio {
+
+	&-list {
+		display: flex;
+		flex-flow: row wrap;
+		gap: var(--custom-gap, 0.5rem);
+		margin: var(--custom-margin, 1rem 0 0);
+	}
+
+
+	&-option {
+		display: flex;
+		gap: 0.5rem;
+		align-items: start;
+		padding: 0.7rem 0.95rem 0.75rem;
+		background: var(--clr-lblue);
+		border: none;
+		border-radius: 0.5rem;
+		color: var(--clr-content-3);
+		width: var(--custom-width, 100%);
+
+		&[checked] {
+			outline: 2px solid var(--clr-primary-pressed);
+			background: var(--clr-lavender-border);
+		}
+
+	}
+
+	&-input {
+		margin-top: 0.35rem;
+	}
+
+	&-content {
+		display: grid;
+		align-items: stretch;
+		text-align: left;
+		cursor: pointer;
+
+
+	}
+
+
+	&-title {
+		color: var(--clr-content-1);
+		font-weight: 500;
+	}
+
+
+
+}

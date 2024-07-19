@@ -1,0 +1,47 @@
+.sprofile {
+	&-desc {
+		margin-top: 0.5rem;
+	}
+
+	&-button-bar {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem 0.5rem;
+		margin-top: 1rem;
+	}
+
+
+	&-button {
+		--custom-margin: 0;
+		--custom-size: calc(var(--fs-sm) * 1.25);
+	}
+}
+
+.sprofile-form {
+	--gap-x: 1rem;
+	--gap-y: 1rem;
+	margin-top: 1.75rem;
+	display: flex;
+	flex-flow: row wrap;
+	gap: var(--gap-y) var(--gap-x);
+
+
+	&>* {
+		width: 100%;
+	}
+
+
+	@media (min-width: 900px) {
+
+		.form-textinput-field[data-inputid="dob"],
+		.form-textinput-field[data-inputid="gender"],
+		.form-textinput-field[data-inputid="first-name"],
+		.form-textinput-field[data-inputid="specialty"],
+		.form-textinput-field[data-inputid="years-of-experience"],
+		.form-textinput-field[data-inputid="last-name"] {
+			width: calc(50% - (var(--gap-x) / 2))
+		}
+	}
+}

@@ -1,0 +1,77 @@
+.shospital {
+	&-desc {
+		margin-top: 0.5rem;
+	}
+
+	&-button-bar {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem 0.5rem;
+		margin-top: 1rem;
+	}
+
+
+
+
+	&-field {
+		display: grid;
+		gap: 0.5rem;
+	}
+
+	&-button {
+		width: fit-content;
+		--custom-margin: 1rem auto auto;
+		--custom-size: calc(var(--fs-sm) * 1.25);
+
+	}
+}
+
+.shospital-form {
+
+	&#setup-hospital-people {
+		margin-top: 1.5rem;
+	}
+
+	--gap-x: 1rem;
+	--gap-y: 1rem;
+	margin-top: 1rem;
+	display: grid;
+	gap: var(--gap-y) var(--gap-x);
+
+
+	&>* {
+		width: 100%;
+	}
+
+
+	.custom-radio-list {
+		--custom-margin: 0;
+	}
+
+
+	.custom-radio-list[aria-labelledby="admin-number"] {
+		--custom-gap: 0.5rem;
+		--custom-width: fit-content;
+	}
+
+
+	.custom-radio-list[aria-labelledby="hospital-needs"] {
+		--custom-gap: 0.5rem;
+		--custom-width: 100%;
+
+		@media (min-width: 900px) {
+			--custom-width: calc(50% - (var(--custom-gap) / 2));
+		}
+	}
+
+	.shospital-button {
+		width: fit-content;
+		--custom-margin: 1rem 0 0;
+		--custom-size: calc(var(--fs-sm) * 1.25);
+		--custom-padding: 0.75rem 3rem 0.75rem;
+
+	}
+
+}
