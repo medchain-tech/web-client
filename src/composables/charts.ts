@@ -8,6 +8,13 @@ type GetChartData<T> = () => {
 }
 
 
+const DISEASE_TREND = [
+	{ name: "Diabetes", patientCount: [30, 1, 22, 23, 2, 54, 12, 9, 29, 55, 23, 45] },
+	{ name: "Hypertension", patientCount: [30, 1, 22, 23, 2, 54, 12, 9, 29, 55, 23, 45] },
+	{ name: "Diabetes", patientCount: [30, 1, 22, 23, 2, 54, 12, 9, 29, 55, 23, 45] },
+	{ name: "Diabetes", patientCount: [30, 1, 22, 23, 2, 54, 12, 9, 29, 55, 23, 45] },
+]
+
 const PATIENTS_BY_LOCATION = [
 	{ name: "Nigeria", value: 40 },
 	{ name: "Uganda", value: 35 },
@@ -16,6 +23,8 @@ const PATIENTS_BY_LOCATION = [
 	{ name: "Mosam", value: 15 },
 	{ name: "Others", value: 10 },
 ]
+
+
 
 
 const MEDICATION_EFFICACY = [
@@ -28,10 +37,35 @@ const MEDICATION_EFFICACY = [
 			{ name: "Others", cured_patients: 2 },
 		]
 	}
-
-
-
 ]
+
+
+
+
+export const getDiseaseTrend: GetChartData<ChartData<"line">> = () => {
+	return {
+		type: "line",
+		data: {
+			labels: ["Jan", "Feb", "Mar", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"],
+			datasets: [
+				{
+					label: DISEASE_TREND[0].name,
+					data: DISEASE_TREND[0].patientCount,
+					borderColor: "#00000040",
+					backgroundColor: "#6833FB50",
+					pointStyle: 'circle',
+					pointRadius: 10,
+					pointHoverRadius: 15,
+					tension: 0.4
+				}
+			]
+		},
+		options: {}
+	}
+}
+
+
+
 
 export const getPatientsHomeInfo: GetChartData<ChartData<"bar">> = () => {
 

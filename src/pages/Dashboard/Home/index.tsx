@@ -1,8 +1,67 @@
-import { JSXElement } from "solid-js";
+import { For, JSXElement, onCleanup, onMount } from "solid-js";
 import "./index.scss"
 import { Assets } from "@/components/Assets";
+import CustomInput, { CustomInputProps } from "@/components/CustomInput";
+import { setupTabs } from "@/composables/tabs";
+import { ArcElement, BarController, BarElement, CategoryScale, Chart, DoughnutController, Legend, LineController, LineElement, LinearScale, PointElement, Title, Tooltip } from "chart.js";
+import { getDiseaseTrend } from "@/composables/charts";
+
+
+const adminDiseaseChartFilters: CustomInputProps[] = [
+	{
+		type: "select",
+		id: "admin-disease-trend",
+		label: "Disease Trend",
+		options: ["Diabetes", "Malaria", "Hypertension"]
+	},
+
+	{
+
+		type: "select",
+		id: "admin-disease-year",
+		label: "Year",
+		options: ["2024", "2023"]
+	}
+
+]
 
 const Home = (): JSXElement => {
+	let controller: AbortController;
+	// eslint-disable-next-line prefer-const
+	let diseaseTrend = null as unknown as HTMLCanvasElement;
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	let diseaseTrendChart = null as unknown as Chart;
+
+	onMount(() => {
+		controller = setupTabs("padmin-highs-tabpanels", "padmin-highs-tabs").controller
+		Chart.register(
+			Title,
+			Tooltip,
+			Legend,
+			LineController,
+			CategoryScale,
+			LinearScale,
+			PointElement,
+			BarElement,
+			BarController,
+			LineElement,
+			DoughnutController,
+			ArcElement
+		);
+
+		Chart.defaults.font.family = "Poppins, sans serif"
+
+		const chartData = getDiseaseTrend()
+		diseaseTrendChart = new Chart(diseaseTrend, chartData)
+
+
+	})
+
+	onCleanup(() => {
+		controller?.abort()
+		diseaseTrendChart.destroy()
+	})
+
 	return <>
 		<div class="dashboard">
 			<nav class="dsidebar">
@@ -148,7 +207,7 @@ const Home = (): JSXElement => {
 
 					<div class="padmin" id="dashboard-admin">
 						<section data-span="1" class="padmin-over">
-							<strong class="padmin-over-greeting">Hi UCH Admin 👋</strong>
+							<h3 class="padmin-over-greeting">Hi UCH Admin 👋</h3>
 							<p class="padmin-over-text">Here is today’s patient treatments overview</p>
 
 							<dl class="padmin-over-list">
@@ -171,6 +230,57 @@ const Home = (): JSXElement => {
 								<li class="padmin-over-li">7 new test result is available</li>
 							</ul>
 						</section>
+
+
+						<section class="padmin-dchart" data-span="2">
+
+							<div class="padmin-dchart-header">
+								<h3 class="padmin-dchart-title">Disease trend</h3>
+
+								<form id="dchart-filters" class="padmin-dchart-filters">
+									<For each={adminDiseaseChartFilters}>
+										{(input) => <CustomInput {...input} />}
+									</For>
+								</form>
+							</div>
+
+							{/* TODO: put line chart here with chart.js */}
+							<div class="padmin-dchart-chart">
+								<canvas ref={diseaseTrend}></canvas>
+							</div>
+						</section>
+
+
+						<section class="padmin-highs" data-span="2">
+							<h3 title="padmin-highs-title" class="sr-only">Highlights</h3>
+							<ul id="padmin-highs-tabs" class="padmin-highs-tabs" data-tabs="tabs-list" aria-labelledby="padmin-highlights-title">
+								<li class="padmin-highs-tabli"><a role="tab" href="#padmin-highs-insights">Insights</a></li>
+								<li class="padmin-highs-tabli"><a role="tab" href="#padmin-highs-visits">Weekly Visits</a></li>
+							</ul>
+
+
+							<div class="padmin-highs-tabpanels" id="padmin-highs-tabpanels">
+								<div class="padmin-highs-tabpanel" role="tabpanel" id="padmin-highs-insights">
+									<ul class="padmin-highs-insights">
+										<li class="padmin-highs-insight">43% of patients with diabetes have not had a blood sugar test in the last 6 months</li>
+										<li class="padmin-highs-insight">25% of patients with hypertension have not had a blood pressure check in the last 3 months</li>
+										<li class="padmin-highs-insight">The top 3 most common diagnoses are hypertension, diabetes, and asthma</li>
+										<li class="padmin-highs-insight">The most frequently prescribed medications are Lisinopril, Metformin, and Albuterol</li>
+									</ul>
+
+									<button data-link class="padmin-highs-button">See All</button>
+
+								</div>
+								<div class="padmin-highs-tabpanel" role="tabpanel" id="padmin-highs-visits">
+									<h4>Weekly Visits Tabs</h4>
+								</div>
+							</div>
+
+						</section>
+						<section class="padmin-apps" data-span="1"></section>
+
+						<section class="padmin-incidence" data-span="1"></section>
+
 
 					</div>
 				</div>
