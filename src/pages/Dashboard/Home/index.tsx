@@ -268,7 +268,9 @@ const Home = (): JSXElement => {
 										<li class="padmin-highs-insight">The most frequently prescribed medications are Lisinopril, Metformin, and Albuterol</li>
 									</ul>
 
-									<button data-link class="padmin-highs-button">See All</button>
+									<button data-link class="padmin-highs-button">See All
+										<svg viewBox="0 0 24 24"><use href="#right"></use></svg>
+									</button>
 
 								</div>
 								<div class="padmin-highs-tabpanel" role="tabpanel" id="padmin-highs-visits">
@@ -277,7 +279,59 @@ const Home = (): JSXElement => {
 							</div>
 
 						</section>
-						<section class="padmin-apps" data-span="1"></section>
+						<section class="padmin-apps" data-span="1">
+							<div class="padmin-apps-header">
+								<h3 class="padmin-apps-title">Appointments</h3>
+								<button data-link class="padmin-apps-view-all">
+									View All
+									<svg viewBox="0 0 24 24"><use href="#right"></use></svg>
+								</button>
+							</div>
+
+							<table class="padmin-apps-calendar">
+								<thead>
+									<tr>
+										<th>M</th>
+										<th>T</th>
+										<th>W</th>
+										<th>T</th>
+										<th>F</th>
+										<th>S</th>
+										<th>S</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>2</td>
+										<td>3</td>
+										<td data-active="true">4</td>
+										<td>5</td>
+										<td>6</td>
+										<td>7</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<ul class="padmin-apps-list">
+
+								<li class="appointment-item">
+									<div class="appointment-info">
+										<p class="appointment-title"><strong>Alexandra David</strong> - Medical checkup</p>
+										<div class="appointment-timebar">
+											<time class="appointment-time">9:00am - 10.00am</time>
+											<p class="appointment-doc">Dr Mark Henry</p>
+										</div>
+										<div class="appointment-statbar">
+											<button class="appointment-button">Click To Approve</button>
+											<button class="appointment-button">Health Record</button>
+										</div>
+									</div>
+
+								</li>
+							</ul>
+
+						</section>
 
 						<section class="padmin-incidence" data-span="1"></section>
 
