@@ -65,6 +65,35 @@ export const getDiseaseTrend: GetChartData<ChartData<"line">> = () => {
 }
 
 
+export const getDiseaseIncidence: GetChartData<ChartData<"doughnut">> = () => {
+
+	return {
+		type: "doughnut",
+		data: {
+			labels: MEDICATION_EFFICACY[0].medications.map(medication => medication.name),
+			datasets: [
+				{
+					data: MEDICATION_EFFICACY[0].medications.map(medication => medication.cured_patients),
+					backgroundColor: ["#9186FF", "#58D481", "#ABA8CC", "#EC5562", "#F8F7FF"],
+					borderRadius: 10,
+					animation: false
+				}
+			]
+		},
+		options: {
+			plugins: {
+				legend: {
+					display: false
+				}
+			}
+		}
+
+
+	}
+
+
+}
+
 
 
 export const getPatientsHomeInfo: GetChartData<ChartData<"bar">> = () => {

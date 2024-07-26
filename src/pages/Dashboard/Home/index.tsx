@@ -4,7 +4,7 @@ import { Assets } from "@/components/Assets";
 import CustomInput, { CustomInputProps } from "@/components/CustomInput";
 import { setupTabs } from "@/composables/tabs";
 import { ArcElement, BarController, BarElement, CategoryScale, Chart, DoughnutController, Legend, LineController, LineElement, LinearScale, PointElement, Title, Tooltip } from "chart.js";
-import { getDiseaseTrend } from "@/composables/charts";
+import { getDiseaseIncidence, getDiseaseTrend } from "@/composables/charts";
 
 
 const adminDiseaseChartFilters: CustomInputProps[] = [
@@ -25,12 +25,25 @@ const adminDiseaseChartFilters: CustomInputProps[] = [
 
 ]
 
+const adminIncidenceInput: CustomInputProps = {
+	type: "select",
+	id: "admin-incidence-month",
+	label: "Year",
+	options: ["June 1-30", "July 1-30"]
+}
+
+
 const Home = (): JSXElement => {
 	let controller: AbortController;
 	// eslint-disable-next-line prefer-const
 	let diseaseTrend = null as unknown as HTMLCanvasElement;
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	let diseaseTrendChart = null as unknown as Chart;
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	// eslint-disable-next-line prefer-const
+	let incidenceEl = null as unknown as HTMLCanvasElement;
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	let incidenceChart = null as unknown as Chart;
 
 	onMount(() => {
 		controller = setupTabs("padmin-highs-tabpanels", "padmin-highs-tabs").controller
@@ -54,12 +67,16 @@ const Home = (): JSXElement => {
 		const chartData = getDiseaseTrend()
 		diseaseTrendChart = new Chart(diseaseTrend, chartData)
 
+		const incidenceData = getDiseaseIncidence()
+		incidenceChart = new Chart(incidenceEl, incidenceData)
+
 
 	})
 
 	onCleanup(() => {
 		controller?.abort()
 		diseaseTrendChart.destroy()
+		incidenceChart.destroy()
 	})
 
 	return <>
@@ -333,7 +350,97 @@ const Home = (): JSXElement => {
 
 						</section>
 
-						<section class="padmin-incidence" data-span="1"></section>
+						<section class="padmin-incidence" data-span="1">
+							<div class="padmin-incidence-header">
+								<h3 class="padmin-incidence-title">Incidence</h3>
+
+								<form class="padmin-incidence-form" id="padmn-incidence-form">
+									<CustomInput {...adminIncidenceInput} />
+								</form>
+							</div>
+							<div class="padmin-incidence-chart">
+								{/* TODO: put the pie-chart for incidence here... */}
+								<canvas ref={incidenceEl}></canvas>
+							</div>
+						</section>
+
+						<section class="padmin-pdepts" data-span="2">
+							<h3 class="padmin-pdepts-title">Patients by Department</h3>
+
+							<ul class="padmin-pdepts-stats">
+								<li class="padmin-pdepts-statli">
+									<div class="cadmin-stat">
+										<dt class="cadmin-stat-title">Neurology</dt>
+										<dd class="cadmin-stat-content">30%</dd>
+									</div>
+								</li>
+								<li class="padmin-pdepts-statli">
+									<div class="cadmin-stat">
+										<dt class="cadmin-stat-title">Neurology</dt>
+										<dd class="cadmin-stat-content">30%</dd>
+									</div>
+								</li>
+								<li class="padmin-pdepts-statli">
+									<div class="cadmin-stat">
+										<dt class="cadmin-stat-title">Neurology</dt>
+										<dd class="cadmin-stat-content">30%</dd>
+									</div>
+								</li>
+								<li class="padmin-pdepts-statli">
+									<div class="cadmin-stat">
+										<dt class="cadmin-stat-title">Neurology</dt>
+										<dd class="cadmin-stat-content">30%</dd>
+									</div>
+								</li>
+								<li class="padmin-pdepts-statli">
+									<div class="cadmin-stat">
+										<dt class="cadmin-stat-title">Neurology</dt>
+										<dd class="cadmin-stat-content">30%</dd>
+									</div>
+								</li>
+
+							</ul>
+
+
+							<div class="padmin-pseverities">
+								<h4 class="padmin-pseverities-title">Patient Severity</h4>
+
+								<ul class="padmin-pseverities-list">
+									<li class="padmin-pseverities-li">
+										<div class="cadmin-severity">
+											<p class="cadmin-severity-name">Emergency Cases</p>
+											<span class="cadmin-severity-number">200/400</span>
+											<div title="Emergency: 50% of all patients" class="cadmin-severity-progress" role="progressbar"
+												style="--percent:50;" aria-valuenow={50} aria-valuemin={0} aria-valuemax={100}>
+											</div>
+										</div>
+									</li>
+
+									<li class="padmin-pseverities-li">
+										<div class="cadmin-severity">
+											<p class="cadmin-severity-name">Recovered Cases</p>
+											<span class="cadmin-severity-number">100/400</span>
+											<div title="Recovered: 25% of all patients" class="cadmin-severity-progress" role="progressbar"
+												style="--percent:25;" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100}>
+											</div>
+										</div>
+									</li>
+
+									<li class="padmin-pseverities-li">
+										<div class="cadmin-severity">
+											<p class="cadmin-severity-name">Other Outcomes</p>
+											<span class="cadmin-severity-number">100/400</span>
+											<div title="Other Outcomes: 25% of all patients" class="cadmin-severity-progress" role="progressbar"
+												style="--percent:25;" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100}>
+											</div>
+										</div>
+									</li>
+
+
+								</ul>
+							</div>
+
+						</section>
 
 
 					</div>
