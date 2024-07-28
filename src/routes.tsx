@@ -1,4 +1,3 @@
-import path from "path";
 import AppLayout from "./layouts/AppLayout";
 import HospitalLandingPage from "./pages/HospitalLandingPage";
 import App from "./App";
@@ -34,7 +33,7 @@ const routes = {
           component: HospitalLandingPage,
         },
         {
-          path: "/",
+          path: "",
           component: App,
         },
       ],
