@@ -1,6 +1,6 @@
 import { onCleanup, onMount, ParentComponent } from "solid-js";
 import Navigation from "@/components/Navigation";
-
+import Footer from "@/components/Footer";
 const USER_BODY_NAV_CLASS = "user-nav";
 
 const AppLayout: ParentComponent = (props) => {
@@ -20,6 +20,7 @@ const AppLayout: ParentComponent = (props) => {
       </header>
       {/* Sub routes will be render here */}
       {props.children}
+      <Footer />
     </>
   );
 };
