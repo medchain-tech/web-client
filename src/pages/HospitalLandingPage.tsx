@@ -51,8 +51,8 @@ const HospitalLandingPage = (): JSXElement => {
     <>
       <HospitalHero />
 
-      <div class="container mt-3 mx-auto w-[90%] poppins">
-        <div class="flex flex-col gap-12 items-center py-4 my-4">
+      <div class="w-[90%] mt-3 mx-auto poppins justify-between md:max-lg:gap-6">
+        <div class="flex flex-col h-fit gap-12 items-center py-4 my-4">
           <button class="btn w-40 h-14 border-slate-50 border-2 rounded-xl">
             Features
           </button>
@@ -72,10 +72,12 @@ const HospitalLandingPage = (): JSXElement => {
           </For>
         </div>
         {/* Additional Features Start  */}
-        <div class="flex flex-col w-full items-center my-8 pt-10 gap-4">
+        <div class="flex flex-col w-full h-fit items-center my-8 pt-10 gap-4">
           <h2 class="text-3xl font-semibold">
             Healthcare Providers'{" "}
-            <span class="text-[#6833FB]">Additional Features</span>
+            <span class="text-[var(--clr-btn-primary)]">
+              Additional Features
+            </span>
           </h2>
           {/* Round Frame Start */}
           <div class="w-96 h-96 rounded-full border-dashed border-[0.37rem] border-blue-50 center p-2">
@@ -90,51 +92,52 @@ const HospitalLandingPage = (): JSXElement => {
             </div>
           </div>
           {/* Round Frame End */}
-          <div class="flex flex-wrap w-full gap-[4rem] justify-center mt-[-12rem]">
-            <div class="w-full flex flex-wrap justify-between">
+          <div class="flex flex-wrap w-full gap-4 xl:gap-[4rem] justify-center xl:mt-[-12rem]">
+            <div class="w-full flex flex-wrap justify-center gap-4 xl:gap-0 xl:justify-between">
               <AdditionalFeaturesCard
                 heading={addContent[0].heading}
                 info={addContent[0].info}
+                image=""
               />
               <AdditionalFeaturesCard
                 heading={addContent[1].heading}
                 info={addContent[1].info}
+                image=""
               />
             </div>
             <AdditionalFeaturesCard
               heading={addContent[2].heading}
               info={addContent[2].info}
+              image=""
             />
           </div>
         </div>
         {/* Additional Features End  */}
-        {/* CTA 2 */}
-        <div class="w-full h-96 bg-[var(--clr-stroke)] p-16 center">
-          <div class="bg-[var(--clr-bg-primary)] w-full h-72 center rounded-2xl relative overflow-hidden">
-            // Designs
-            <img src="/Shape.svg" alt="" class="absolute left-0 -bottom-8" />
-            <img src="/Shape2.svg" alt="" class="absolute right-0 top-0" />
-            // Content
-            <div class="w-[48rem] h-[11.75rem] flex flex-col items-center">
-              <h2 class="font-bold text-4xl text-[var(--clr-content-2)] text-center">
-                Ready to take your healthcare experience to the next level?
-              </h2>
-              <span class="flex flex-row gap-8 mt-12">
-                <a href="#" class="btn-primary">
-                  Get started now
-                </a>
-                <a
-                  href="#"
-                  class="flex btn-secondary flex-row items-center gap-2 duration-300"
-                >
-                  Book a demo
-                </a>
-              </span>
-            </div>
+      </div>
+      {/* CTA 2 */}
+      <div class="w-full h-96 bg-[var(--clr-stroke)] p-16 center">
+        <div class="bg-[var(--clr-bg-primary)] w-full h-72 center rounded-2xl relative overflow-hidden">
+          <img src="/Shape.svg" alt="" class="absolute left-0 -bottom-8" />
+          <img src="/Shape2.svg" alt="" class="absolute right-0 top-0" />
+          <div class="w-[48rem] h-[11.75rem] flex flex-col items-center">
+            <h2 class="font-bold text-4xl text-[var(--clr-content-2)] text-center">
+              Ready to take your healthcare experience to the next level?
+            </h2>
+            <span class="flex flex-row gap-8 mt-12">
+              <a href="#" class="btn-primary">
+                Get started now
+              </a>
+              <a
+                href="#"
+                class="flex btn-secondary flex-row items-center gap-2 duration-300"
+              >
+                Book a demo
+              </a>
+            </span>
           </div>
         </div>
-        {/* CTA 2 End */}
       </div>
+      {/* CTA 2 End */}
     </>
   );
 };
