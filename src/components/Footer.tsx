@@ -10,7 +10,7 @@ import {
 const Footer = (): JSXElement => {
   return (
     <>
-      <footer class="bg-[var(--clr-bg-footer)] w-full h-auto poppins text-[var(--clr-bg-primary)] px-20 pt-16">
+      <footer class="bg-[var(--clr-bg-footer)] w-full h-auto poppins text-[var(--clr-bg-primary)] px-20 pt-16 pb-3">
         <div class="flex justify-between flex-wrap">
           <div class="flex flex-col w-[30%] gap-4">
             <div class="bg-[var(--clr-bg-primary)] w-44 h-14 rounded-xl">
