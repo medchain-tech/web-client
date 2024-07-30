@@ -8,6 +8,7 @@ import Verification from "./pages/SignUp/Verification";
 import Profile from "./pages/SignUp/Profile";
 import Hospital from "./pages/SignUp/Hospital";
 import Home from "./pages/Home";
+import PatientsLandingPage from "./pages/PatientsLandingPage";
 
 // Custom types
 const accountTypeFilters = {
@@ -31,6 +32,10 @@ const routes = {
         {
           path: "/hospital",
           component: HospitalLandingPage,
+        },
+        {
+          path: "/patients",
+          component: PatientsLandingPage,
         },
         {
           path: "",
