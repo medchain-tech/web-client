@@ -13,7 +13,7 @@ const Navigation = (): JSXElement => {
               <div>
                 <ul class='flex flex-row gap-8'>
                   <li><a href='/' class='navList'>About</a></li>
-                  <li><a href='/PatientsLandingPage' class='navList'>For Patients</a></li>
+                  <li><a href='/patients' class='navList'>For Patients</a></li>
                   <li><a href='/hospital' class='navList'>For Hospitals</a></li>
                   <li><a href='/HospitalLandingPage' class='navList'>Pricing</a></li>
                   <li><a href='/HospitalLandingPage' class='navList'>Contact us</a></li>
