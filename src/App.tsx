@@ -1,46 +1,13 @@
 import { type JSXElement } from "solid-js";
 import HomeScreen1 from "./components/HomeScreen1";
-import { Tag, ImageTag } from "./components/Tags";
-import { ImageTagContent, TagContent } from "./types";
+import { ChainTag, Tag, ImageTag } from "./components/Tags";
+import {
+  tagContent,
+  imageTagContent,
+  chainTagContent,
+} from "./data/Application";
 
 function App(): JSXElement {
-  const tagContent: TagContent[] = [
-    {
-      info: "Analytics System for hospitals",
-      image: "",
-      position: "-left-5 top-3",
-    },
-    {
-      info: "Patient Database System",
-      image: "",
-      position: "-right-40 top-24",
-    },
-    {
-      info: "Comparison System",
-      image: "",
-      position: "-right-40 bottom-24",
-    },
-    {
-      info: "Disease Incidence Database System",
-      image: "",
-      position: "-left-2 bottom-3",
-    },
-  ];
-
-  const imageTagContent: ImageTagContent[] = [
-    {
-      image: "",
-      position: "right-8 top-3",
-    },
-    {
-      image: "",
-      position: "-left-7",
-    },
-    {
-      image: "",
-      position: "right-8 bottom-3",
-    },
-  ];
   return (
     <>
       <HomeScreen1 />
@@ -117,8 +84,61 @@ function App(): JSXElement {
               </div>
             </div>
           </div>
+
+          {/* WHY MEDCHAIN  */}
+          <h2 class="font-semibold text-3xl">
+            Why <span class="text-[var(--clr-btn-primary)]">Medchain? </span>
+          </h2>
+          <div class="flex flex-col xl:flex-row w-full gap-14 justify-around xl:justify-center p-5 rounded-3xl">
+            <div class="xl:w-[35%] flex flex-col gap-2">
+              <ChainTag
+                content={chainTagContent[0].content}
+                index={chainTagContent[0].index}
+                active={chainTagContent[0].active}
+              />
+              <ChainTag
+                content={chainTagContent[1].content}
+                index={chainTagContent[1].index}
+                active={chainTagContent[1].active}
+              />
+              <ChainTag
+                content={chainTagContent[2].content}
+                index={chainTagContent[2].index}
+                active={chainTagContent[2].active}
+              />
+              <ChainTag
+                content={chainTagContent[3].content}
+                index={chainTagContent[3].index}
+                active={chainTagContent[3].active}
+              />
+              <ChainTag
+                content={chainTagContent[4].content}
+                index={chainTagContent[4].index}
+                active={chainTagContent[4].active}
+              />
+              <ChainTag
+                content={chainTagContent[5].content}
+                index={chainTagContent[5].index}
+                active={chainTagContent[5].active}
+              />
+            </div>
+            <div class="xl:w-[60%] h-[300px] bg-[var(--clr-bg-cmp)] flex flex-col gap-3 p-5 rounded-2xl">
+              <h2 class="text-3xl font-semibold">
+                {chainTagContent[0].index}
+                {". "}
+                {chainTagContent[0].content}
+              </h2>
+              <p class="text-[var(--clr-content-6)] text-xl font-normal">
+                {chainTagContent[0].info}
+              </p>
+            </div>
+          </div>
+
           {/* Features End*/}
         </div>
+        {/* Impact 1  */}
+
+        {/* Impact 1 End  */}
       </div>
       {/* CTA 2 */}
       <div class="w-full h-96 bg-[var(--clr-stroke)] p-16 center">

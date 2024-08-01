@@ -1,5 +1,5 @@
 import { JSXElement } from "solid-js";
-import { TagContent, ImageTagContent } from "@/types";
+import { TagContent, ImageTagContent, ChainTagContent } from "@/types";
 
 export const Tag = ({ info, image, position }: TagContent): JSXElement => {
   return (
@@ -26,6 +26,19 @@ export const ImageTag = ({ image, position }: ImageTagContent): JSXElement => {
       class={`size-14 center bg-slate-200 rounded-full absolute ${position}`}
     >
       <img src={image} alt="" />
+    </div>
+  );
+};
+
+export const ChainTag = ({ content, index, active}: ChainTagContent): JSXElement => {
+  return (
+    <div class={`h-12 flex items-center gap-3 p-3 rounded-3xl ${active && "bg-[var(--clr-bg-cmp)]"}`}>
+      {/* Image Tag  */}
+      <div class="size-7 center bg-slate-200 rounded-full">
+        <h5 class="text-[var(--clr-btn-primary)] text-xs">{index}</h5>
+      </div>
+      {/* Image Tag End */}
+      <h3 class={`text-base font-medium ${active || "text-[var(--clr-content-6)]"}`}>{content}</h3>
     </div>
   );
 };
