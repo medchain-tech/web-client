@@ -1,16 +1,26 @@
 import { type JSXElement } from "solid-js";
-import HomeScreen1 from "./components/HomeScreen1";
-import { ChainTag, Tag, ImageTag } from "./components/Tags";
+import HomeScreen1 from "@components/HomeScreen1";
+import { ChainTag, Tag, ImageTag } from "@components/Tags";
 import {
   tagContent,
   imageTagContent,
   chainTagContent,
+  impactContent,
+  carouselContents,
 } from "./data/Application";
+import ImpactCard from "@components/Cards/Home/impact";
+import CarouselCard from "@components/Cards/Home/carousel";
+import { For } from "solid-js";
+import {
+  RiArrowsArrowDropLeftLine,
+  RiArrowsArrowDropRightLine,
+} from "solid-icons/ri";
 
 function App(): JSXElement {
   return (
-    <>
+    <div class="bg-[var(--clr-bg-secondary-low)]">
       <HomeScreen1 />
+
       <div class="w-[90%] mt-3 mx-auto poppins justify-between md:max-lg:gap-6">
         <div class="flex flex-col h-fit gap-12 items-center py-4 my-4">
           <button class="btn w-40 h-14 border-slate-50 border-2 rounded-xl">
@@ -136,9 +146,72 @@ function App(): JSXElement {
 
           {/* Features End*/}
         </div>
-        {/* Impact 1  */}
 
+        {/* Impact 1  */}
+        <div class="flex flex-col h-fit gap-12 items-center py-4 my-4">
+          <button class="btn w-40 h-14 border-slate-50 border-2 rounded-xl">
+            Impact
+          </button>
+          <h2 class="font-semibold text-3xl">
+            Impact of{" "}
+            <span class="text-[var(--clr-btn-primary)]">Medchain </span> on
+            African Medical Centres
+          </h2>
+
+          {/* Features Start  */}
+          <div class="flex flex-col xl:flex-row xl:flex-wrap w-full gap-14 justify-around xl:justify-center p-5 rounded-3xl relative">
+            {/* Background  */}
+            {/* <div class="w-[80%] h-[80%] rounded-full border-dashed border-[0.37rem] border-[var(--clr-bg-secondary)] center p-24 absolute -z-[1]">
+              <div class="w-full h-full border-dashed border-[0.27rem] border-[var(--clr-bg-secondary)] rounded-full center"></div>
+            </div> */}
+            {/* Background End  */}
+            <For each={impactContent}>
+              {(item) => (
+                <ImpactCard
+                  heading={item.heading}
+                  content={item.content}
+                  image={item.image}
+                />
+              )}
+            </For>
+          </div>
+          {/* Features End*/}
+        </div>
         {/* Impact 1 End  */}
+
+        {/* Impact 2  */}
+        <div class="flex flex-col h-fit gap-12 items-center py-4 my-4">
+          <button class="btn w-40 h-14 border-slate-50 border-2 rounded-xl">
+            Impact
+          </button>
+          <h2 class="font-semibold text-3xl">
+            What <span class="text-[var(--clr-btn-primary)]">People </span> say
+            About us
+          </h2>
+
+          {/* Carousel  */}
+          <CarouselCard
+            name={carouselContents[0].name}
+            comment={carouselContents[0].comment}
+            image={carouselContents[0].image}
+          />
+          {/* Carousel End*/}
+
+          {/* Navigator */}
+          <div class="flex gap-10">
+            <div
+              class={`size-14 center bg-slate-200 hover:bg-[var(--clr-btn-primary)] hover:text-[var(--clr-bg-primary)] rounded-full`}
+            >
+              <RiArrowsArrowDropLeftLine class="size-28" />
+            </div>
+            <div
+              class={`size-14 center bg-slate-200 hover:bg-[var(--clr-btn-primary)] hover:text-[var(--clr-bg-primary)] rounded-full`}
+            >
+              <RiArrowsArrowDropRightLine class="size-28" />
+            </div>
+          </div>
+        </div>
+        {/* Impact 2 End  */}
       </div>
       {/* CTA 2 */}
       <div class="w-full h-96 bg-[var(--clr-stroke)] p-16 center">
@@ -150,19 +223,21 @@ function App(): JSXElement {
               Ready to take your healthcare experience to the next level?
             </h2>
             <span class="flex flex-row gap-8 mt-12">
-              <a href="" class="w-44 h-20 object-cover">
-                <img src="/image11.svg" alt="" class="w-full h-full" />
+              <a href="#" class="btn-primary">
+                Get started now
               </a>
-
-              <a href="" class="w-44 h-20 object-cover">
-                <img src="/image12.svg" alt="" class="w-full h-full" />
+              <a
+                href="#"
+                class="flex btn-secondary flex-row items-center gap-2 duration-300"
+              >
+                Download app
               </a>
             </span>
           </div>
         </div>
       </div>
       {/* CTA 2 End */}
-    </>
+    </div>
   );
 }
 

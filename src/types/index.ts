@@ -7,4 +7,19 @@ export type AddFeatureContent = {
 };
 export type TagContent = { info: string; image: string; position: string };
 export type ImageTagContent = { image: string; position: string };
-export type ChainTagContent = { content: string, index: number, active: boolean, info?: string};
+export type ChainTagContent = {
+  content: string;
+  index: number;
+  active: boolean;
+  info?: string;
+};
+export type ImpactCardContent = {
+  heading: string;
+  content: string;
+  image: string;
+};
+export type CarouselCardContent = {
+  name: string;
+  comment: string;
+  image: string;
+};
