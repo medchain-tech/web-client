@@ -53,8 +53,8 @@
 
   --clr-indigo: #4f46e5;
   --clr-btn-primary: #6833fb;
-  --clr-bg-footer: #523D8D;
-  --clr-bg-cmp: #F4F7FA;
+  --clr-bg-footer: #523d8d;
+  --clr-bg-cmp: #f4f7fa;
 
   --clr-lblue: hsla(212deg 65% 95%);
 
@@ -242,6 +242,23 @@ button {
     background-color: var(--clr-btn-primary);
     color: var(--clr-bg-primary);
   }
+}
+
+.mask-image-gradient {
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 15%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 15%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 .buttonSignUp:hover {
