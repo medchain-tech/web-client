@@ -1,125 +1,36 @@
-.dboard {
-
-	min-height: 90vh;
+.dashboard {
+	--dashboard-padding: 1.25rem 1.5rem;
+	--dashboard-nav-width: 300px;
 	display: grid;
-	grid-template-areas:
-		"dboard-main"
-		"dboard-sidebar"
-	;
-	grid-template-columns: auto;
 
-	@media (min-width: 1050px) {
 
-		grid-template-areas: "dboard-main dboard-sidebar";
-		grid-template-columns: auto minmax(200px, 20vw);
+	/* INFO: GRID PLACEMENTS */
+	grid-template-columns: 1fr;
 
+	&>.dsidebar {
+		grid-row: 1 / -1;
+		grid-column: 1 / -1;
 	}
 
-
-
-	&-main {
-		grid-column: dboard-main;
-		overflow-x: hidden;
-	}
-
-	&-sidebar {
-
-		width: min(300px, 80vw);
-		border: 1px solid var(--clr-bg);
-		margin-inline-start: 1.5rem;
-		border-radius: 0.5rem;
-
-
-
-		grid-column: dboard-sidebar;
+	&>.dcontent {
 		height: fit-content;
-		padding: 0.75rem 1rem 1rem;
+		grid-column: 1 / -1;
+		grid-row: 1 / -1;
+		width: 100%;
+	}
 
 
-		@media (min-width:1050px) {
-			width: auto;
-			border: none;
-			margin-inline-start: 0;
-			border-radius: 0;
+	@media (min-width: 900px) {
+		grid-template-columns: var(--dashboard-nav-width) 1fr;
 
-
-			border-inline-start: 1px solid var(--clr-bg-secondary);
-			border-block-end: 1px solid var(--clr-bg-secondary);
-			border-end-start-radius: 0.5rem;
-
+		&>.dsidebar {
+			grid-row: 1 / -1;
+			grid-column: 1 / 2;
 		}
 
-
+		&>.dcontent {
+			grid-row: span 1;
+			grid-column: 2 / 3;
+		}
 	}
-
-
-}
-
-
-.dboard-header-mobile {
-
-	display: flex;
-	padding: 1rem 1.5rem 1.25rem;
-	flex-flow: row nowrap;
-	align-items: center;
-	justify-content: space-between;
-	background: var(--clr-bg-secondary);
-	color: var(--clr-content-2);
-	position: sticky;
-	left: 0;
-
-	@media (min-width: 1050px) {
-		display: none;
-	}
-
-
-	&-text {
-		font-weight: 500;
-		font-size: calc(var(--fs-md) * 1.25);
-	}
-
-	&-notifications {
-		--icon-size: 25px;
-		background: none;
-		color: var(--clr-content-2);
-		border: none;
-	}
-
-
-
-}
-
-.dboard-notifications {
-	display: grid;
-	gap: 1rem;
-
-	&-header {
-		--icon-size: 20px;
-
-		display: flex;
-		flex-flow: row;
-		gap: 0.35rem;
-		align-items: center;
-		justify-content: start;
-		padding: 0.45rem 0.65rem 0.5rem;
-		background: var(--clr-bg-secondary);
-		border-radius: 0.5rem;
-		font-size: calc(var(--fs-md) * 0.95);
-		line-height: 0.9;
-		font-weight: 500;
-		color: var(--clr-content-2);
-		border: 1px solid var(--clr-bg);
-	}
-
-
-	&-list {
-		display: grid;
-		gap: 0.75rem;
-		list-style: none;
-	}
-
-	&-li {
-		display: contents;
-	}
-
 }

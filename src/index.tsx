@@ -15,16 +15,10 @@ import { Start } from './pages/SignUp/Start'
 import Verification from './pages/SignUp/Verification'
 import Profile from './pages/SignUp/Profile'
 import Hospital from './pages/SignUp/Hospital'
-import Home from './pages/Dashboard/Home'
+import Dashboard from './layouts/Dashboard'
+import { OutbreakRecord } from './pages/Dashboard/OutbreakRecord'
 
 const root = document.getElementById('root')
-/* const Home = lazy(() => import("./pages/Home/index"))
-const DoctorPage = lazy(() => import("./pages/Doctor/index"))
-const Dashboard = lazy(() => import("./layouts/Dashboard/index"))
-const UserLayout = lazy(() => import("./layouts/UserPage/index"))
-
-const HospitalHome = lazy(() => import("./pages/HospitalHome/index"))
- */
 
 const accountTypeFilters = {
   accountType: ["personal", "professional", "hospital"] as AccountType[]
@@ -43,8 +37,9 @@ render(() =>
       <Route path="/hospital/needs" component={Hospital} />
     </Route>
 
-    <Route path=":accountType/dashboard" matchFilters={accountTypeFilters}>
-      <Route path="/" component={Home} />
+    <Route path=":accountType/dashboard" component={Dashboard} matchFilters={accountTypeFilters}>
+      <Route path="/" />
+      <Route path="/outbreaks" component={OutbreakRecord} />
 
     </Route>
 

@@ -448,7 +448,6 @@ const Home = (): JSXElement => {
 			</div>
 		</div>
 
-		<Assets />
 	</>
 }
 

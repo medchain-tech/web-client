@@ -1,4 +1,4 @@
-import { For, JSXElement, mergeProps } from "solid-js";
+import { Component, For, JSXElement, mergeProps } from "solid-js";
 import "./index.scss";
 
 interface SidebarLinkProps {
@@ -32,12 +32,9 @@ const links = {
 
 
 
-const SidebarLink = (props: SidebarLinkProps): JSXElement => {
+const SidebarLink: Component<SidebarLinkProps> = (props) => {
 	const userProps = mergeProps(props, {
 		iconSize: 24,
-		iconLink: "nav-home",
-		text: "Overview",
-		link: "/"
 	})
 
 
